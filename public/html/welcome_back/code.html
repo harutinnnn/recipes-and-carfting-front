@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#dbe4ea",
+                        "outline-variant": "#bccbb9",
+                        "secondary": "#944a23",
+                        "surface-tint": "#006e2f",
+                        "primary": "#006e2f",
+                        "inverse-surface": "#293236",
+                        "inverse-primary": "#4ae176",
+                        "inverse-on-surface": "#e9f2f8",
+                        "tertiary": "#735c00",
+                        "tertiary-container": "#cfa800",
+                        "surface-container-highest": "#dbe4ea",
+                        "secondary-container": "#fd9e70",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d2dbe1",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#004b1e",
+                        "on-background": "#141d21",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-surface": "#141d21",
+                        "tertiary-fixed": "#ffe083",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e0e9ef",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#6bff8f",
+                        "surface-bright": "#f4faff",
+                        "on-surface-variant": "#3d4a3d",
+                        "primary-container": "#22c55e",
+                        "on-primary-fixed-variant": "#005321",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#4f3e00",
+                        "secondary-fixed-dim": "#ffb693",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-secondary-fixed-variant": "#76330d",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e6eff5",
+                        "error": "#ba1a1a",
+                        "surface": "#f4faff",
+                        "on-secondary-container": "#76340e",
+                        "on-secondary": "#ffffff",
+                        "background": "#f4faff",
+                        "surface-container-low": "#ecf5fb",
+                        "on-primary-fixed": "#002109",
+                        "primary-fixed-dim": "#4ae176",
+                        "outline": "#6d7b6c",
+                        "on-secondary-fixed": "#351000",
+                        "tertiary-fixed-dim": "#eec200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "sm": "12px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Rubik"],
+                        "headline-lg-mobile": ["Rubik"],
+                        "currency-md": ["Rubik"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Rubik"],
+                        "label-bold": ["Rubik"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "currency-md": ["20px", { "lineHeight": "1", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-bold": ["14px", { "lineHeight": "1", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cozy-bg {
+            background-color: #FFFBEB; /* Warm paper background from elevation guide */
+            background-image: radial-gradient(#e6eff5 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+        }
+        .button-shadow {
+            box-shadow: 0 4px 0 0 rgba(0, 75, 30, 0.8);
+        }
+        .button-shadow-secondary {
+            box-shadow: 0 4px 0 0 rgba(118, 51, 13, 0.8);
+        }
+        .pressed {
+            transform: translateY(4px);
+            box-shadow: none !important;
+        }
+        .glint-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="cozy-bg font-body-md text-on-background min-h-screen flex items-center justify-center p-margin-mobile">
+<!-- Login Container -->
+<main class="w-full max-w-[440px] animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- Header Branding -->
+<div class="text-center mb-lg">
+<div class="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-xl border-4 border-outline mb-base shadow-[0_4px_0_0_rgba(0,110,47,0.3)]">
+<span class="material-symbols-outlined text-on-primary text-[40px]" style="font-variation-settings: 'FILL' 1;">potted_plant</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Verdant Harvest</h1>
+<p class="font-body-md text-on-surface-variant mt-xs">Your fields are waiting for you.</p>
+</div>
+<!-- Login Card -->
+<div class="bg-surface-container-lowest border-2 border-secondary rounded-xl p-lg shadow-[0_8px_0_0_rgba(148,74,35,0.1)] relative overflow-hidden">
+<!-- Decorative Inner Glow -->
+<div class="absolute inset-0 pointer-events-none border-[12px] border-surface-container-low/30 rounded-lg"></div>
+<form class="space-y-md relative z-10" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="space-y-xs">
+<label class="font-label-bold text-label-bold text-secondary uppercase tracking-wider" for="email">Email Address</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-body-md text-on-surface placeholder:text-outline-variant/60 transition-all shadow-inner" id="email" placeholder="farmer@harvest.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-xs">
+<div class="flex justify-between items-end">
+<label class="font-label-bold text-label-bold text-secondary uppercase tracking-wider" for="password">Password</label>
+<a class="font-label-bold text-label-bold text-primary hover:underline transition-all" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-2 border-outline-variant rounded-lg focus:border-primary focus:ring-0 font-body-md text-on-surface placeholder:text-outline-variant/60 transition-all shadow-inner" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="pt-sm space-y-md">
+<button class="w-full bg-primary text-on-primary font-label-bold text-label-bold py-4 rounded-lg button-shadow active:translate-y-1 active:shadow-none transition-all glint-effect relative flex items-center justify-center gap-2 group" id="loginBtn" type="submit">
+<span>Login to Farm</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex items-center gap-4 py-2">
+<div class="h-0.5 bg-outline-variant flex-1 opacity-40"></div>
+<span class="font-label-bold text-label-bold text-outline-variant">OR</span>
+<div class="h-0.5 bg-outline-variant flex-1 opacity-40"></div>
+</div>
+<button class="w-full bg-surface text-secondary border-2 border-secondary font-label-bold text-label-bold py-4 rounded-lg button-shadow-secondary active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-3" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                        Continue with Google
+                    </button>
+</div>
+</form>
+<!-- Bottom Link -->
+<div class="mt-lg text-center">
+<p class="font-body-md text-on-surface-variant">
+                    New here? 
+                    <a class="text-primary font-label-bold hover:underline" href="#">Create account</a>
+</p>
+</div>
+</div>
+<!-- Atmospheric Illustration -->
+<div class="mt-lg grid grid-cols-3 gap-4 opacity-40">
+<div class="aspect-square bg-outline-variant/20 rounded-xl overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="A lush, vibrant cartoon-style farm field with rows of sprouting green crops under a bright, sunny blue sky. The style is soft and nurturing with warm golden lighting and high-contrast earthy tones, matching a cozy digital gardening game aesthetic. Tiny sparkling butterflies hover near the soil." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGrirA5QvY1TA_0UZGLwmIgtdK-u1r9FiAbjBB2pYrewL0Sr3g-LnDEuY_Q9Hr-sMxeUu8ADJqDmCUy0VLfWr33g7f92kIPqe1iUc3R_1oS9Ht1Qlfd8vxi7QJt2xPlNMUHCSUQQgh1h465XWra8b4zuHP7E5irQYBwBJcv4jomWxahete5FScefBcrB-fIfiSsNto9awSkEk1SRGV4y8Ej8sQqUx4qThTiJHUq78aZIBAh7GtTWkJTn2zzvr8CIVUWUMBVd_t18Iy"/>
+</div>
+<div class="aspect-square bg-outline-variant/20 rounded-xl overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="A cute, stylized wooden barn with a bright red roof and white trim, sitting on a small hill surrounded by rolling green pastures. The lighting is high-key and cheerful, featuring a clean, modern illustration style with soft ambient shadows and vibrant nature-inspired colors typical of a cozy simulator." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh1E-5HULTnppFrZrKgP1RPJlfmrZtTviZbmGdMb-59yk4V1cUBs8-akY0FDjMCijbddP403wIARdEbNxTRBcHaebDP-Ku096JCFJE6tonp50MLsbavozwO3N2-yqBzFL8ZObs_JpzVVblvYJmhinTtoI_VthjD2q9y_NC9eqGwPVOJzBIbgje7lvnpC-vGwzDxgm4mIy8oO84hT2BmDTxi0TUF0cx2uICGy9sRtiNIHuOoSGr7uwi_r9VqtEBdo3apbOfbcC7RZXS"/>
+</div>
+<div class="aspect-square bg-outline-variant/20 rounded-xl overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="A basket overflowing with freshly harvested cartoon vegetables including plump carrots, round tomatoes, and bright lettuce. The objects have chunky, substantial outlines and soft inner glows mimicking morning sunlight. The palette is rich in oranges, reds, and greens against a soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDri5XUBqf_r6bsUft6Jzq59kDmpboVd1ZYMO4EwINmhi4DT5Zi7bCf7lggrj6yZ8Z0Zt2NZXPIf_8Hed1Fe5oOolHtchuCItuE-WdT1VKAd1TmKIj3j8DACnrCLwvxF_o1MgqYRaKH0Ag0CcVRmi31ztnRsBKTbDjXO9M4TH1QlpmBmYjya6OrK-30MdN3N3C3cc7pGMYAUJy-0gvzRhgzXoIuylb2_TlN5ylMVb2pxa-heAT4Ojcpjfj4eB5TbAddLHjOU-TNI8bI"/>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        const loginBtn = document.getElementById('loginBtn');
+        
+        loginBtn.addEventListener('mousedown', () => {
+            loginBtn.classList.add('pressed');
+        });
+        
+        loginBtn.addEventListener('mouseup', () => {
+            loginBtn.classList.remove('pressed');
+        });
+        
+        loginBtn.addEventListener('mouseleave', () => {
+            loginBtn.classList.remove('pressed');
+        });
+
+        // Add small hover float effect to the main icon
+        const farmIcon = document.querySelector('.bg-primary');
+        let hoverY = 0;
+        let direction = 1;
+        
+        function animateIcon() {
+            hoverY += 0.05 * direction;
+            if (Math.abs(hoverY) > 2) direction *= -1;
+            farmIcon.style.transform = `translateY(${hoverY}px)`;
+            requestAnimationFrame(animateIcon);
+        }
+        animateIcon();
+    </script>
+</body></html>

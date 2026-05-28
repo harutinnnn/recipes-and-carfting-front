@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sunny Valley - Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#006e2f",
+                    "surface-bright": "#f4faff",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#6d7b6c",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#76330d",
+                    "secondary-fixed-dim": "#ffb693",
+                    "inverse-primary": "#4ae176",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e0e9ef",
+                    "surface-container": "#e6eff5",
+                    "on-primary-container": "#004b1e",
+                    "inverse-on-surface": "#e9f2f8",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#002109",
+                    "surface": "#f4faff",
+                    "primary-fixed": "#6bff8f",
+                    "secondary-container": "#fd9e70",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#4ae176",
+                    "tertiary-fixed": "#ffe083",
+                    "inverse-surface": "#293236",
+                    "outline-variant": "#bccbb9",
+                    "on-surface-variant": "#3d4a3d",
+                    "tertiary-fixed-dim": "#eec200",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "surface-container-highest": "#dbe4ea",
+                    "primary-container": "#22c55e",
+                    "secondary": "#944a23",
+                    "on-secondary-fixed": "#351000",
+                    "background": "#f4faff",
+                    "surface-container-low": "#ecf5fb",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#4f3e00",
+                    "on-secondary-container": "#76340e",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-surface": "#141d21",
+                    "on-primary-fixed-variant": "#005321",
+                    "on-tertiary-fixed": "#231b00",
+                    "tertiary": "#735c00",
+                    "surface-tint": "#006e2f",
+                    "on-background": "#141d21",
+                    "surface-variant": "#dbe4ea",
+                    "tertiary-container": "#cfa800",
+                    "surface-dim": "#d2dbe1",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "xs": "4px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "margin-mobile": "16px",
+                    "md": "24px",
+                    "gutter": "20px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Rubik"],
+                    "display-lg": ["Rubik"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-bold": ["Rubik"],
+                    "headline-lg": ["Rubik"],
+                    "currency-md": ["Rubik"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-bold": ["14px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "currency-md": ["20px", {"lineHeight": "1", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FFFBEB; /* Warm paper background from style guidance */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #141d21;
+        }
+        .chunky-shadow {
+            box-shadow: 0 4px 0 0 #bccbb9;
+        }
+        .button-press {
+            transition: all 0.1s;
+        }
+        .button-press:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+        .button-press:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 currentColor;
+        }
+        .primary-btn {
+            background-color: #006e2f;
+            color: white;
+            box-shadow: 0 4px 0 0 #004b1e;
+        }
+        .primary-btn:active {
+            box-shadow: 0 0 0 0 #004b1e;
+        }
+        .currency-card {
+            background: white;
+            border: 2px solid #78350F; /* Earthy brown border */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glint {
+            position: relative;
+            overflow: hidden;
+        }
+        .glint::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-low dark:bg-surface-container-lowest border-b-2 border-outline-variant shadow-sm flex justify-between items-center px-margin-mobile py-sm md:px-margin-desktop">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 28px;">potted_plant</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">Sunny Valley</h1>
+</div>
+<div class="flex items-center gap-2 bg-primary-container/20 px-3 py-1.5 rounded-full">
+<span class="font-currency-md text-currency-md text-on-primary-container">Lv.12 • 450G</span>
+</div>
+</header>
+<main class="pt-24 max-w-xl mx-auto px-margin-mobile space-y-8">
+<!-- Profile Section -->
+<section class="flex flex-col items-center text-center space-y-4">
+<div class="relative">
+<div class="w-32 h-32 rounded-full border-4 border-primary p-1 bg-white shadow-lg">
+<img alt="Farmer Avatar" class="w-full h-full rounded-full object-cover" data-alt="A friendly, stylized 3D illustration of a middle-aged farmer named Sam with a warm smile, wearing a straw hat and green overalls. The character is set against a soft-focus background of a sun-drenched vegetable garden in a vibrant, cozy game aesthetic. The lighting is warm and golden, emphasizing a nurturing and peaceful rural atmosphere with saturated greens and soft textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl-iVWFhmhgPxLsCkEpF1i0KdQORD6J8EaGNWq0B00FbxNemDjAv1chljZ51zYIdTL9CUoeDH4ouH2s65RO9WOhPmFkpQAGFdiz174g0ff-PB7XEb-bZQaJgaG4OIDgPmMsjVQXbBJxH_cP5XpxzPlpb-hPjdrkEQAwSG-os4I6UQaVhPIQ7fW1AvRnkbitwfxZUF8SWb4UheSe_dLMchhH3MHFjshI895vdFqNLwZXyXlfpen5GUBtrZ1jeDQnnjmNMTJsP4h-Mea">
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full border-2 border-white shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 20px;">edit</span>
+</button>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Sam Gardener</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">sam@harvest.com</p>
+</div>
+<button class="px-6 py-2 rounded-xl font-label-bold text-label-bold border-2 border-primary text-primary hover:bg-primary/5 transition-colors active:translate-y-0.5">
+                Edit Profile
+            </button>
+</section>
+<!-- Economy Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Game Gold -->
+<div class="currency-card p-md rounded-xl flex items-center justify-between shadow-sm relative overflow-hidden glint">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-yellow-400 border-2 border-yellow-600 flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-yellow-900" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant">Game Gold</p>
+<p class="font-currency-md text-currency-md text-on-surface">1,240 G</p>
+</div>
+</div>
+</div>
+<!-- Gems -->
+<div class="currency-card p-md rounded-xl flex items-center justify-between shadow-sm border-secondary">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-blue-400 border-2 border-blue-600 flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-blue-900" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant">Gems</p>
+<p class="font-currency-md text-currency-md text-on-surface">50 Gems</p>
+</div>
+</div>
+<button class="w-10 h-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-[0_4px_0_0_#004b1e] active:shadow-none active:translate-y-1 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</section>
+<!-- Account Security Section -->
+<section class="bg-white border-2 border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 bg-surface-container-low border-b-2 border-outline-variant">
+<h3 class="font-label-bold text-label-bold text-primary uppercase tracking-wider">Account &amp; Security</h3>
+</div>
+<div class="divide-y-2 divide-outline-variant">
+<!-- Change Password -->
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors text-left group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">lock</span>
+<span class="font-body-md text-body-md">Change Password</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<!-- Notifications Toggle -->
+<div class="flex items-center justify-between p-md text-left">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="font-body-md text-body-md">Email Notifications</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-14 h-8 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary shadow-inner"></div>
+</label>
+</div>
+<!-- Privacy Settings -->
+<button class="w-full flex items-center justify-between p-md hover:bg-surface-container transition-colors text-left group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">visibility</span>
+<span class="font-body-md text-body-md">Privacy Settings</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Logout Button -->
+<div class="pt-4">
+<button class="w-full py-4 rounded-xl font-label-bold text-label-bold text-error border-2 border-error hover:bg-error-container/20 transition-all active:translate-y-1 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">logout</span>
+                Log Out
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end pb-4 pt-2 px-2 bg-surface dark:bg-surface-dim border-t-2 border-outline-variant shadow-lg md:hidden">
+<!-- Farm -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-75" href="#">
+<span class="material-symbols-outlined">home_pin</span>
+<span class="font-label-bold text-label-bold mt-1">Farm</span>
+</a>
+<!-- Storage -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-75" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-bold text-label-bold mt-1">Storage</span>
+</a>
+<!-- Market -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-75" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-bold text-label-bold mt-1">Market</span>
+</a><a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-container-highest transition-all duration-75" href="#">
+<span class="material-symbols-outlined">factory</span>
+<span class="font-label-bold text-label-bold mt-1">Industrial</span>
+</a>
+<!-- Kitchen (Active state mapping to current intent: Profile/User center usually distinct, but per rules we must select closest from JSON. Since none match exactly, we assume user is viewing Kitchen/Management as part of active flow if forced, but here we highlight Kitchen as the 'Active' item for demonstration as it's a top level destination) -->
+<!-- Actually, if none match, we follow hierarchy. Let's assume Profile isn't in top nav, so we highlight Kitchen as 'Active' for layout demonstration -->
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl px-4 py-1.5 shadow-[0_4px_0_0_#004b1e] transform translate-y-[-2px] transition-all duration-75" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">cooking</span>
+<span class="font-label-bold text-label-bold mt-1">Kitchen</span>
+</a>
+</nav>
+<!-- Desktop Sidebar/Nav simulation if needed based on responsive pivot (hidden md:flex mentioned in JSON rules) -->
+<div class="hidden md:flex fixed left-0 top-0 h-full w-24 flex-col items-center py-24 gap-8 bg-surface border-r-2 border-outline-variant shadow-sm z-40">
+<a class="p-3 rounded-xl text-primary hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 32px;">home_pin</span>
+</a>
+<a class="p-3 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 32px;">inventory_2</span>
+</a>
+<a class="p-3 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 32px;">storefront</span>
+</a><a class="p-3 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 32px;">factory</span>
+</a>
+<a class="p-3 rounded-xl bg-primary text-on-primary shadow-md" href="#">
+<span class="material-symbols-outlined" style="font-size: 32px; font-variation-settings: 'FILL' 1;">cooking</span>
+</a>
+</div>
+<script>
+        // Micro-interaction for toggle switch
+        const toggles = document.querySelectorAll('input[type="checkbox"]');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const container = this.closest('label').parentElement;
+                if(this.checked) {
+                    console.log('Notifications enabled');
+                } else {
+                    console.log('Notifications disabled');
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

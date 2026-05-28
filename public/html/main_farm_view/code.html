@@ -1,0 +1,315 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sparkle-animation {
+            animation: sparkle 2s infinite ease-in-out;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+        .glint {
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+        }
+        .chunky-shadow-green { box-shadow: 0 4px 0 0 #166534; }
+        .chunky-shadow-orange { box-shadow: 0 4px 0 0 #9a3412; }
+        .chunky-shadow-blue { box-shadow: 0 4px 0 0 #1d4ed8; }
+        .pressed { transform: translateY(4px); box-shadow: 0 0px 0 0 transparent !important; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#351000",
+                        "outline-variant": "#bccbb9",
+                        "surface-container-high": "#e0e9ef",
+                        "secondary-fixed-dim": "#ffb693",
+                        "secondary": "#944a23",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f4faff",
+                        "primary-fixed-dim": "#4ae176",
+                        "primary-fixed": "#6bff8f",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#dbe4ea",
+                        "on-primary-fixed-variant": "#005321",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-secondary-fixed-variant": "#76330d",
+                        "surface-container": "#e6eff5",
+                        "surface-container-low": "#ecf5fb",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#cfa800",
+                        "on-surface": "#141d21",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#004b1e",
+                        "surface-variant": "#dbe4ea",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface-tint": "#006e2f",
+                        "primary-container": "#22c55e",
+                        "tertiary": "#735c00",
+                        "tertiary-fixed-dim": "#eec200",
+                        "on-background": "#141d21",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffe083",
+                        "on-primary-fixed": "#002109",
+                        "outline": "#6d7b6c",
+                        "surface-dim": "#d2dbe1",
+                        "primary": "#006e2f",
+                        "on-surface-variant": "#3d4a3d",
+                        "background": "#f4faff",
+                        "on-secondary-container": "#76340e",
+                        "on-tertiary-container": "#4f3e00",
+                        "inverse-on-surface": "#e9f2f8",
+                        "inverse-surface": "#293236",
+                        "secondary-container": "#fd9e70",
+                        "inverse-primary": "#4ae176",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f4faff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "base": "8px",
+                        "margin-desktop": "48px",
+                        "sm": "12px",
+                        "lg": "40px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Rubik"],
+                        "currency-md": ["Rubik"],
+                        "headline-lg-mobile": ["Rubik"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-bold": ["Rubik"],
+                        "headline-lg": ["Rubik"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "currency-md": ["20px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden min-h-screen">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-surface-dim border-b-4 border-outline dark:border-outline-variant shadow-[0_4px_0_0_rgba(0,110,47,0.2)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden shadow-sm bg-primary-fixed">
+<img alt="Player Avatar" data-alt="A cute, stylized 3D avatar of a friendly farmer with a straw hat and green overalls. The character has a cheerful expression and is rendered in a soft, vibrant toy-like aesthetic with warm, high-key lighting consistent with a cozy mobile game universe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9SOh8IezSKqIIsMfastJREUst_5fSRd6Lx_Z_QInrn742aQ8t7D0d-OWdy4th1AkBRFPmCxE0ASIbiW9RHt0l7gcW05OithEa-WE8TAavhDtWdUwr29Rdf4gaSn-tVyLJpi3l0Ciu9V6YKUBbEGgHbjXtjcz1U1VVysxrQ_bgfI_HkH-jqKiM_MmMFrCe-3PyCBlE8Dm2bKJegYRpgJ9H5CMSx5Jd_S0O_5wNmyQNbqBttbYnO2k8ZmUXekJ1aJDVkbKlWaS5Wq7E">
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed">Lvl 24</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center gap-1 bg-surface-container rounded-full px-3 py-1 border-2 border-tertiary shadow-[0_2px_0_0_#735c00]">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-currency-md text-currency-md text-on-surface">1,240 G</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 max-w-md mx-auto">
+<!-- Energy Bar Section -->
+<section class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-bold text-label-bold text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    Energy
+                </span>
+<span class="font-label-bold text-label-bold text-primary">85/100</span>
+</div>
+<div class="h-6 w-full bg-surface-container-high rounded-full overflow-hidden border-2 border-outline-variant relative">
+<div class="h-full bg-primary-container w-[85%] rounded-full relative transition-all duration-500">
+<div class="absolute top-0 left-0 w-full h-1/2 glint opacity-60"></div>
+</div>
+</div>
+</section>
+<!-- Crop Grid -->
+<section class="mb-10">
+<div class="grid grid-cols-2 gap-4">
+<!-- Plot 1: Growing -->
+<div class="aspect-square bg-surface-container rounded-xl border-2 border-secondary p-2 flex flex-col items-center justify-center relative shadow-[0_4px_0_0_#944a23]">
+<img class="w-16 h-16 opacity-60" data-alt="A stylized, chunky 3D icon of a growing carrot seedling poking out of rich, dark brown soil. The carrot has bright green leaves and is rendered in a soft, rounded aesthetic with warm sunlight illuminating the scene in a cozy game style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh3gSFDxyZ6oHKRWg4MRdwkpGxe5H-Mq1EY1Suf21_7roV3YU0G5pjZ3bAOHwaKH0xX2KBa8LnTgEfBvrKCQoaQdojPsmEx0NWFhXpMFC5UScTslX33Rs2xd_FldUBAJX_00tJ9v4kL8L9WFz4-cqC6kOa-Y3CtiItVovqTX2x3dkDHH74dn6mM8uRMjrAMj9HwZbvP8pZVtKp6trxKhivADD1C1XW43fPfrlXdjUzyVhn5F51cdCncSlLsH3LbXOt0df_I1mg0qaC">
+<div class="w-full mt-2 h-2 bg-surface-dim rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-secondary-container w-2/3"></div>
+</div>
+</div>
+<!-- Plot 2: Ready -->
+<div class="aspect-square bg-surface-container-low rounded-xl border-2 border-primary p-2 flex flex-col items-center justify-center relative shadow-[0_4px_0_0_#006e2f] bg-green-50">
+<div class="absolute -top-1 -right-1">
+<span class="material-symbols-outlined text-tertiary sparkle-animation" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<img class="w-20 h-20" data-alt="A vibrant, fully grown 3D carrot with lush green foliage popping out of the earth. The carrot is orange and plump, glowing with magical sparkles to indicate it is ready for harvest. High-contrast, playful, and tactile art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9BHzRHqDjj-sWEwraV9owsU4L4ZJAh56u2sjpLbHhHZuhgenRmuswnV0ChR_t1U4cHal56Y6v_4crCWJ6CcgtSZzK1IvX4kg1x2r0meFNaZLrr6GGepto46OxDyq2bN0yHvRhz0_pWcAdoLhgsvx3j7eyzVP2zTv_z-nh4I7GQIW1rtlFs59LlPsf8_vUhZFBiEXli6B-pqXrYBLQMf3XY642a6YalKALfkAv-81GScW6LmCcaqelRp0pQttl-Oh5wmopTT6h554s">
+<span class="absolute bottom-2 font-label-bold text-label-bold text-primary">Ready!</span>
+</div>
+<!-- Plot 3: Tilled (Empty) -->
+<div class="aspect-square bg-[#76330d22] rounded-xl border-2 border-dashed border-secondary p-2 flex flex-col items-center justify-center relative">
+<span class="material-symbols-outlined text-secondary opacity-40 text-4xl">add_circle</span>
+<span class="mt-1 font-label-bold text-label-bold text-secondary opacity-60">Plant Seed</span>
+</div>
+<!-- Plot 4: Ready -->
+<div class="aspect-square bg-surface-container-low rounded-xl border-2 border-primary p-2 flex flex-col items-center justify-center relative shadow-[0_4px_0_0_#006e2f] bg-green-50">
+<div class="absolute -top-1 -left-1">
+<span class="material-symbols-outlined text-tertiary sparkle-animation" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<img class="w-20 h-20" data-alt="Stylized 3D ripe orange carrot with vibrant green leaves, surrounded by gentle floating golden sparkles. The setting is a cozy farm plot with rich brown soil and a soft-focus sunny background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWj9a6wnV709R5xehfNDb84jN-2C6Gl9n-Aiso8uIkYa4Kylb1eEoSm76QWZ6nJd9O0zKXjCsRqD7p7tywEJR3MZ7vf-u6BBReu1atXftYXZk9gz_4rMxf0qSJB3DR9_m8rGqq0NgdX1u8V0sL36gToloBPpl5TRIUKfCfkdVKICs5PgckF5jFs8uoDbeSi1vKnOkemLQPyb58KFZ11ZZ-stvPnKMpOjdJtuBKNch7kWOege91LwBWN5MOGM7OLGkpES5aQkdpCDWf">
+<span class="absolute bottom-2 font-label-bold text-label-bold text-primary">Ready!</span>
+</div>
+<!-- Plot 5: Growing -->
+<div class="aspect-square bg-surface-container rounded-xl border-2 border-secondary p-2 flex flex-col items-center justify-center relative shadow-[0_4px_0_0_#944a23]">
+<img class="w-12 h-12 opacity-40" data-alt="A small sprout with two tiny green leaves emerging from a mound of dark, moist earth. The visual style is chunky and cute, like a toy set, with a warm color palette of greens and browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKyEsxpZxBPQJgUo-jO2--a8cFuHVeGc5ons7xYCE_2wc7OiDQB-k5LdKFl-fhFVzQKddTe_GoprOmNd3-Sgkg_NRV6GF06Kt9YGJq4ONO_iXwlS_Wim2LLskm1SmfIw3Ngg0vK8MYWmV51O3ApX7ojBKhSeuMDw6MbxP4suLmtL7N474Ap2hy-7O0bsr1j53R7aMwGVZcEFAAOH8fqA6VNX2T035LgY_gxhfNckzFtK2RSU8UMcidWVrL8cpVaSRIuG0twMeEUQhr">
+<div class="w-full mt-2 h-2 bg-surface-dim rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-secondary-container w-1/4"></div>
+</div>
+</div>
+<!-- Plot 6: Growing -->
+<div class="aspect-square bg-surface-container rounded-xl border-2 border-secondary p-2 flex flex-col items-center justify-center relative shadow-[0_4px_0_0_#944a23]">
+<img class="w-16 h-16 opacity-60" data-alt="Middle-stage carrot plant growth showing four distinct green leaves reaching upwards. Rendered in a tactile, skeuomorphic 3D style with soft edges and saturated colors for a mobile farm game." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Gd7WTnw6yOE6toavwqcHsy9YsMTivJ7kOkf7i70yqbjjrCdjMqqKxjm2SUV_Wg42aO6L4-4ghPLTlmozBy9OTk7_tE-_2FgEzb-60XU0xsk9DDA4Y5-9LkHfPa9LgpFJTxoFdygmD0TBk6xNE-3rlK2JRmsoPmyS2a6HDzIC2q2U0KiCbtgYZm_Is2fH2LHBXBhvJEpoBLrfHbRBsFv8yfMAHryaoJx2cS2P6WCTgVm_8hS1aNOeq96hMvMTkfQ3g1Qn-apyhLsy">
+<div class="w-full mt-2 h-2 bg-surface-dim rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-secondary-container w-4/5"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Animal Pen Area -->
+<section class="mb-10 bg-surface-container-lowest rounded-2xl border-4 border-secondary p-6 shadow-[0_8px_0_0_#944a23] relative">
+<div class="absolute -top-4 left-6 bg-secondary text-white px-4 py-1 rounded-full font-label-bold text-label-bold">
+                Barnyard
+            </div>
+<div class="space-y-6 mt-2">
+<!-- Chicken -->
+<div class="flex items-center justify-between p-3 bg-white rounded-xl border-2 border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
+<span class="text-4xl">🐔</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Chicken</p>
+<p class="text-sm text-primary font-bold">Ready for Eggs!</p>
+</div>
+</div>
+<button class="bg-primary-container p-2 rounded-lg chunky-shadow-green active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">egg</span>
+</button>
+</div>
+<!-- Cow -->
+<div class="flex items-center justify-between p-3 bg-white rounded-xl border-2 border-outline-variant">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center">
+<span class="text-4xl">🐮</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Cow</p>
+<p class="text-sm text-primary font-bold">Ready to Milk!</p>
+</div>
+</div>
+<button class="bg-primary-container p-2 rounded-lg chunky-shadow-green active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Primary Action Buttons -->
+<section class="grid grid-cols-2 gap-4 mb-8">
+<button class="flex flex-col items-center justify-center gap-2 py-4 bg-blue-500 text-white rounded-2xl font-label-bold text-label-bold chunky-shadow-blue active:translate-y-1 active:shadow-none transition-all" id="water-all">
+<span class="material-symbols-outlined text-3xl">water_drop</span>
+                Water All
+            </button>
+<button class="flex flex-col items-center justify-center gap-2 py-4 bg-primary-container text-on-primary-container rounded-2xl font-label-bold text-label-bold chunky-shadow-green active:translate-y-1 active:shadow-none transition-all" id="collect-all">
+<span class="material-symbols-outlined text-3xl">back_hand</span>
+                Collect All
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container dark:bg-surface-container-highest border-t-4 border-outline dark:border-outline-variant shadow-[0_-4px_0_0_rgba(0,0,0,0.05)] rounded-t-xl">
+<!-- Farm (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg border-b-4 border-primary py-1 px-3 active:translate-y-1 active:border-b-0 transition-all duration-100 hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">potted_plant</span>
+<span class="font-label-bold text-label-bold">Farm</span>
+</a>
+<!-- Storage -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 active:translate-y-1 transition-all duration-100 hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-bold text-label-bold">Storage</span>
+</a>
+<!-- Market -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 active:translate-y-1 transition-all duration-100 hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-bold text-label-bold">Market</span>
+</a>
+<!-- Kitchen -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 active:translate-y-1 transition-all duration-100 hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">skillet</span>
+<span class="font-label-bold text-label-bold">Kitchen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 active:translate-y-1 transition-all duration-100 hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined">factory</span>
+<span class="font-label-bold text-label-bold">Industrial</span>
+</a></nav>
+<script>
+        // Simple micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.classList.add('pressed');
+            });
+            btn.addEventListener('touchend', () => {
+                btn.classList.remove('pressed');
+            });
+            btn.addEventListener('mousedown', () => {
+                btn.classList.add('pressed');
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.classList.remove('pressed');
+            });
+        });
+
+        // "Water All" Visual Feedback
+        document.getElementById('water-all').addEventListener('click', () => {
+            const plots = document.querySelectorAll('.aspect-square.bg-surface-container');
+            plots.forEach((plot, index) => {
+                setTimeout(() => {
+                    const ripple = document.createElement('div');
+                    ripple.className = 'absolute inset-0 bg-blue-300 opacity-40 rounded-xl transition-all duration-500 scale-0';
+                    plot.appendChild(ripple);
+                    requestAnimationFrame(() => {
+                        ripple.classList.remove('scale-0');
+                        ripple.classList.add('scale-100');
+                        setTimeout(() => ripple.remove(), 600);
+                    });
+                }, index * 100);
+            });
+        });
+    </script>
+
+
+</body></html>

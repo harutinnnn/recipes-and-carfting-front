@@ -1,0 +1,340 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sunny Valley Market</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#944a23",
+                    "on-surface-variant": "#3d4a3d",
+                    "on-secondary-fixed-variant": "#76330d",
+                    "inverse-surface": "#293236",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#dbe4ea",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#351000",
+                    "primary-container": "#22c55e",
+                    "on-tertiary-fixed": "#231b00",
+                    "on-background": "#141d21",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "primary-fixed-dim": "#4ae176",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#4f3e00",
+                    "on-primary-fixed": "#002109",
+                    "inverse-on-surface": "#e9f2f8",
+                    "tertiary-container": "#cfa800",
+                    "secondary-container": "#fd9e70",
+                    "on-surface": "#141d21",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d2dbe1",
+                    "tertiary-fixed-dim": "#eec200",
+                    "inverse-primary": "#4ae176",
+                    "surface-tint": "#006e2f",
+                    "surface-container": "#e6eff5",
+                    "on-error": "#ffffff",
+                    "surface": "#f4faff",
+                    "on-primary-container": "#004b1e",
+                    "surface-container-high": "#e0e9ef",
+                    "surface-bright": "#f4faff",
+                    "background": "#f4faff",
+                    "secondary-fixed": "#ffdbcc",
+                    "outline": "#6d7b6c",
+                    "tertiary": "#735c00",
+                    "on-secondary-container": "#76340e",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#dbe4ea",
+                    "on-primary-fixed-variant": "#005321",
+                    "primary-fixed": "#6bff8f",
+                    "primary": "#006e2f",
+                    "outline-variant": "#bccbb9",
+                    "surface-container-low": "#ecf5fb",
+                    "secondary-fixed-dim": "#ffb693",
+                    "tertiary-fixed": "#ffe083"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "sm": "12px",
+                    "margin-mobile": "16px",
+                    "lg": "40px",
+                    "base": "8px",
+                    "xl": "64px",
+                    "md": "24px",
+                    "gutter": "20px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Rubik"],
+                    "label-bold": ["Rubik"],
+                    "headline-lg": ["Rubik"],
+                    "currency-md": ["Rubik"],
+                    "display-lg": ["Rubik"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-bold": ["14px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "currency-md": ["20px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chunky-button {
+            box-shadow: 0 4px 0 0 var(--tw-shadow-color);
+        }
+        .chunky-button:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 var(--tw-shadow-color);
+        }
+        .chunky-card {
+            border: 2px solid #78350F;
+        }
+        .sun-glow {
+            background: radial-gradient(circle at top right, rgba(255, 251, 235, 0.8) 0%, rgba(244, 250, 255, 0) 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen font-body-md overflow-x-hidden sun-glow pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-[60] bg-surface dark:bg-inverse-surface text-primary dark:text-primary-fixed-dim shadow-sm border-b-2 border-secondary-container flex justify-between items-center px-margin-mobile py-sm md:px-margin-desktop h-20">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full border-2 border-primary bg-primary-container overflow-hidden flex items-center justify-center">
+<img alt="Profile" class="w-10 h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTS30pOb7gP07YhAvKJWKEKL_3hffdi-DyAFGDIOqPG8ifzVaW0XNMZlRUVKB1c-ZyDui6Ge1Nq9DZZbWPrazDKiQDIm202cm6zs_PGN9GgDq7WI7gfV9i3edYl1SMDSxKmZ1u3lqoDkm5Umc874mmMLZRZyQpmZ76q_tKZYURCWXrYXLb-1yYuMk9m8bkjvhR7X6VU3rVFeWX4B-sPRNg4eQe0gnvc45KMmNiVlrBPdd8bBPNrLrzkb75towrATtY7KVtWEdpY8Ym">
+</div>
+<div>
+<h1 class="font-display-lg text-[24px] md:text-display-lg leading-tight">Sunny Valley</h1>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1 rounded-full border-2 border-secondary-container">
+<span class="material-symbols-outlined text-tertiary">stars</span>
+<span class="font-label-bold text-label-bold">Lv. 24</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<div class="w-5 h-5 bg-tertiary-container rounded-full flex items-center justify-center border border-on-tertiary-container">
+<span class="material-symbols-outlined text-[12px] text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+<span class="font-currency-md text-currency-md text-secondary">1,240 G</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-4xl mx-auto px-margin-mobile md:px-0 py-md">
+<!-- Tab Navigation -->
+<div class="flex justify-center mb-lg">
+<div class="bg-surface-container p-1 rounded-xl border-2 border-secondary-container inline-flex gap-1">
+<button class="px-8 py-3 rounded-lg font-label-bold text-label-bold transition-all bg-primary-container text-on-primary-container border-b-4 border-on-primary-fixed-variant" id="btn-buy" onclick="switchTab('buy')">
+                    BUY
+                </button>
+<button class="px-8 py-3 rounded-lg font-label-bold text-label-bold transition-all text-on-surface-variant hover:bg-surface-bright" id="btn-sell" onclick="switchTab('sell')">
+                    SELL
+                </button>
+</div>
+</div>
+<!-- Buy View -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="view-buy">
+<!-- Seed Shop Items -->
+<div class="chunky-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col hover:scale-[1.02] transition-transform duration-200">
+<div class="h-32 bg-primary flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+<span class="material-symbols-outlined text-6xl text-white">grass</span>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-lg text-lg text-on-surface">Carrot Seeds</h3>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-xs font-bold px-2 py-1 rounded">HOT</span>
+</div>
+<p class="text-sm text-on-surface-variant flex-grow">Grow crunchy carrots in just 4 hours. Perfect for beginners!</p>
+<div class="mt-md flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-currency-md text-currency-md text-secondary">5 G</span>
+</div>
+<button class="chunky-button bg-primary text-on-primary font-label-bold text-label-bold px-6 py-2 rounded-lg shadow-on-primary-fixed-variant">
+                            Buy
+                        </button>
+</div>
+</div>
+</div>
+<div class="chunky-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col hover:scale-[1.02] transition-transform duration-200">
+<div class="h-32 bg-error flex items-center justify-center relative">
+<span class="material-symbols-outlined text-6xl text-white">nutrition</span>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-lg text-lg text-on-surface mb-base">Tomato Seeds</h3>
+<p class="text-sm text-on-surface-variant flex-grow">Loves the sun! Yields 3-5 tomatoes per harvest. Takes 8 hours.</p>
+<div class="mt-md flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-currency-md text-currency-md text-secondary">8 G</span>
+</div>
+<button class="chunky-button bg-primary text-on-primary font-label-bold text-label-bold px-6 py-2 rounded-lg shadow-on-primary-fixed-variant">
+                            Buy
+                        </button>
+</div>
+</div>
+</div>
+<div class="chunky-card bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col hover:scale-[1.02] transition-transform duration-200">
+<div class="h-32 bg-tertiary flex items-center justify-center relative">
+<span class="material-symbols-outlined text-6xl text-white">egg</span>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-lg text-lg text-on-surface mb-base">Animal Feed</h3>
+<p class="text-sm text-on-surface-variant flex-grow">Nutritious blend for chickens and cows. Boosts production!</p>
+<div class="mt-md flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-currency-md text-currency-md text-secondary">12 G</span>
+</div>
+<button class="chunky-button bg-primary text-on-primary font-label-bold text-label-bold px-6 py-2 rounded-lg shadow-on-primary-fixed-variant">
+                            Buy
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sell View (Hidden by default) -->
+<div class="hidden flex flex-col gap-sm" id="view-sell">
+<div class="bg-surface-container-low p-md rounded-xl border-2 border-secondary-container mb-sm flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">inventory_2</span>
+<h2 class="font-headline-lg text-xl text-on-surface">Your Inventory</h2>
+</div>
+<button class="text-secondary font-label-bold text-sm underline">Sell All (Max Value)</button>
+</div>
+<!-- Inventory List -->
+<div class="grid grid-cols-1 gap-sm">
+<div class="chunky-card bg-white p-md rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-orange-100 rounded-lg border-2 border-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-orange-600">garden_cart</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-lg">Harvested Carrot</h4>
+<p class="text-sm text-on-surface-variant">Qty: 24</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="flex items-center justify-end gap-1">
+<span class="font-currency-md text-secondary">10 G</span>
+<span class="text-xs text-on-surface-variant">/ ea</span>
+</div>
+<p class="text-xs text-primary font-bold">Total: 240 G</p>
+</div>
+<button class="chunky-button bg-secondary text-on-secondary font-label-bold px-6 py-2 rounded-lg shadow-[#572106]">
+                            Sell
+                        </button>
+</div>
+</div>
+<div class="chunky-card bg-white p-md rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-yellow-50 rounded-lg border-2 border-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-yellow-600" style="font-variation-settings: 'FILL' 1;">egg</span>
+</div>
+<div>
+<h4 class="font-headline-lg text-lg">Fresh Egg</h4>
+<p class="text-sm text-on-surface-variant">Qty: 12</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-right">
+<div class="flex items-center justify-end gap-1">
+<span class="font-currency-md text-secondary">15 G</span>
+<span class="text-xs text-on-surface-variant">/ ea</span>
+</div>
+<p class="text-xs text-primary font-bold">Total: 180 G</p>
+</div>
+<button class="chunky-button bg-secondary text-on-secondary font-label-bold px-6 py-2 rounded-lg shadow-[#572106]">
+                            Sell
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container dark:bg-inverse-surface border-t-4 border-secondary-container shadow-lg flex justify-around items-end pb-4 pt-2 px-2 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-bright active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="potted_plant">potted_plant</span>
+<span class="font-label-bold text-label-bold mt-1">Farm</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-bright active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-bold text-label-bold mt-1">Storage</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 translate-y-[-4px] border-b-4 border-primary active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-bold text-label-bold mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-bright active:scale-95 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="skillet">skillet</span>
+<span class="font-label-bold text-label-bold mt-1">Kitchen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-surface-bright active:scale-95 transition-all duration-150" href="#"><span class="material-symbols-outlined" data-icon="factory">factory</span><span class="font-label-bold text-label-bold mt-1">Industrial</span></a></nav>
+<!-- Ambient Micro-interactions -->
+<script>
+        function switchTab(view) {
+            const btnBuy = document.getElementById('btn-buy');
+            const btnSell = document.getElementById('btn-sell');
+            const viewBuy = document.getElementById('view-buy');
+            const viewSell = document.getElementById('view-sell');
+
+            if (view === 'buy') {
+                btnBuy.classList.add('bg-primary-container', 'text-on-primary-container', 'border-b-4', 'border-on-primary-fixed-variant');
+                btnBuy.classList.remove('text-on-surface-variant');
+                btnSell.classList.add('text-on-surface-variant');
+                btnSell.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-b-4', 'border-on-primary-fixed-variant');
+                viewBuy.classList.remove('hidden');
+                viewSell.classList.add('hidden');
+            } else {
+                btnSell.classList.add('bg-primary-container', 'text-on-primary-container', 'border-b-4', 'border-on-primary-fixed-variant');
+                btnSell.classList.remove('text-on-surface-variant');
+                btnBuy.classList.add('text-on-surface-variant');
+                btnBuy.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-b-4', 'border-on-primary-fixed-variant');
+                viewSell.classList.remove('hidden');
+                viewBuy.classList.add('hidden');
+            }
+        }
+
+        // Add visual click effect to all chunky buttons
+        document.querySelectorAll('.chunky-button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const originalText = btn.innerText;
+                if (originalText === 'Buy' || originalText === 'Sell') {
+                    btn.innerText = 'Success!';
+                    setTimeout(() => btn.innerText = originalText, 1000);
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

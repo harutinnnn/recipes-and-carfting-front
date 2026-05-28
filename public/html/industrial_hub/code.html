@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Industrial Hub - Verdant Harvest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Rubik:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#006e2f",
+                    "surface-variant": "#dbe4ea",
+                    "on-background": "#141d21",
+                    "tertiary": "#735c00",
+                    "on-tertiary-container": "#4f3e00",
+                    "surface-bright": "#f4faff",
+                    "surface": "#f4faff",
+                    "surface-container-high": "#e0e9ef",
+                    "outline-variant": "#bccbb9",
+                    "on-secondary-fixed": "#351000",
+                    "secondary": "#944a23",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#141d21",
+                    "secondary-container": "#fd9e70",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#ecf5fb",
+                    "primary-container": "#22c55e",
+                    "on-primary-fixed-variant": "#005321",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#4ae176",
+                    "primary-fixed": "#6bff8f",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f4faff",
+                    "tertiary-fixed": "#ffe083",
+                    "on-primary-container": "#004b1e",
+                    "tertiary-fixed-dim": "#eec200",
+                    "surface-dim": "#d2dbe1",
+                    "on-secondary-container": "#76340e",
+                    "surface-container-highest": "#dbe4ea",
+                    "primary-fixed-dim": "#4ae176",
+                    "on-surface-variant": "#3d4a3d",
+                    "outline": "#6d7b6c",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#e9f2f8",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-primary-fixed": "#002109",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#e6eff5",
+                    "on-tertiary-fixed": "#231b00",
+                    "tertiary-container": "#cfa800",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#006e2f",
+                    "on-secondary-fixed-variant": "#76330d",
+                    "inverse-surface": "#293236",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "lg": "40px",
+                    "xs": "4px",
+                    "margin-desktop": "48px",
+                    "gutter": "20px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "currency-md": ["Rubik"],
+                    "label-bold": ["Rubik"],
+                    "headline-lg-mobile": ["Rubik"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Rubik"],
+                    "headline-lg": ["Rubik"]
+            },
+            "fontSize": {
+                    "currency-md": ["20px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .chunky-shadow {
+            box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+        }
+        .pressed-state:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+        }
+        .glint {
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-surface-dim border-b-4 border-outline dark:border-outline-variant shadow-[0_4px_0_0_rgba(0,110,47,0.2)]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container border-2 border-primary flex items-center justify-center overflow-hidden">
+<img alt="Player Avatar" data-alt="A charming 2D vector-style character portrait for a farming game avatar. The character has a warm, friendly expression and wears a straw hat and green overalls. The art style is clean with bold outlines and a soft pastel color palette of greens and blues, evoking a cozy and productive farm atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz1VouQN_I-O3-XrSW2UkqbazGyBJrboeZb-WErNnUPmOwL7danGW0yakiJ51R8QNCBrlvxQkoAzayUTFOncrBpNCvd_pr05nm-5_H7ol83Jk55b2dnA8EGrCA_OOIpGDgHNPoz6vXD_wRopKW3eRdFSJWsxNtxzH8p9c1wA9jFpaGv6Q1l4sZ5sV66LF_LcjK-c2OrUuXi698q4H7disKdSPUQCDHf-Ljs0ic_dI9nHk-kVasOT8p4yHDbYswZiNsudw3-3dQkTLb"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed">Lvl 24</h1>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-high px-4 py-2 rounded-full border-2 border-outline-variant">
+<div class="w-6 h-6 rounded-full bg-[#FFD700] border-2 border-[#B8860B] flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-[#B8860B]" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<span class="font-currency-md text-currency-md text-on-surface">1,240 G</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-margin-mobile">
+<!-- Hero Section -->
+<section class="mb-8">
+<div class="relative overflow-hidden rounded-xl bg-secondary-container p-6 border-4 border-secondary text-on-secondary-container chunky-shadow">
+<div class="absolute -right-4 -bottom-4 opacity-20">
+<span class="material-symbols-outlined text-[120px]">factory</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-2">Industrial Hub</h2>
+<p class="font-body-md text-body-md opacity-90">Build and manage advanced machinery to boost your farm's efficiency.</p>
+</div>
+</section>
+<!-- Industrial Grid -->
+<section class="grid grid-cols-1 gap-gutter">
+<!-- Tractor Plant (Ready to Build) -->
+<div class="bg-surface-container-lowest rounded-xl border-2 border-outline-variant overflow-hidden chunky-shadow">
+<div class="bg-primary h-32 relative overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60" data-alt="A stylized, vibrant 3D illustration of a modern farm tractor parked in a high-tech workshop. The scene is bright with morning sunlight streaming through large industrial windows, highlighting the glossy green paint and chunky black tires. The aesthetic is clean and playful, consistent with a high-end cozy farming simulation game's industrial art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPJgeVRU5EvSgpaN06qszZ8r_mZ0ZfJZ2htLGuWAeKJ6zdC0CF-3rPNPZSLIYxava4mXZ8g4Bp6m6ft-zVSd0Ni1xL3LH6zYiYfSGFtXuRIeqXYIOsz8a5qcqtBeCtsiqvt9U25uMREFWk2Th538vE8v3jfTQ-TdWos2U0yCitedJA5SumFDWSNiNH1iXMFtzFx7OHFPZom0SHfvKJiLEucXgmdazwrxs9S8Lh1CeYEtsWyr0sG9X5MiR7lb61H6338S_Bl-tSB6YF"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-surface-container-lowest/90 px-4 py-2 rounded-lg border-2 border-primary">
+<span class="font-label-bold text-label-bold text-primary">READY TO BUILD</span>
+</div>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Tractor Plant</h3>
+<span class="material-symbols-outlined text-primary text-[32px]">agriculture</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Produces tractors to speed up harvesting and soil tilling by 40%.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t-2 border-surface-container">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary">lock</span>
+<span class="font-label-bold text-label-bold text-tertiary">Lv. 25</span>
+</div>
+<button class="bg-surface-variant text-on-surface-variant px-6 py-2 rounded-lg font-label-bold text-label-bold border-b-4 border-outline cursor-not-allowed opacity-70">
+                            LOCKED
+                        </button>
+</div>
+</div>
+</div>
+<!-- Hydroponics Lab (Active Research) -->
+<div class="bg-surface-container-lowest rounded-xl border-2 border-outline-variant overflow-hidden chunky-shadow">
+<div class="bg-[#3b82f6] h-32 relative overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60" data-alt="A futuristic indoor hydroponic farm laboratory with glowing neon blue nutrient pipes and lush, vibrant green plants growing in vertical stacks. The atmosphere is sterile but inviting, with soft artificial light illuminating the high-tech botanical research equipment. The design uses a saturated color palette and bold, clean lines typical of modern digital game environments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzm_Wi9N3dFzd8coJAvMKGskO7XTvqJ4HMXNVU70VOTVBjOvZyhZYIzzZUScLcYF8KjsNGi-JkPVxTuMpUjvyvVfmzObJR4nON-9M5kYTYBXx8I5g_nLxnFYw0v6clunFX-iSMsMpGryz8NQ6FCFra9rAlZm814MAI5CScin0nbrOHzhXeWKH1JSa8EM1EKsCDNQawgLZJrhPcujgT1femDVswj-F9euckEWh68I2N13HhyCYOz1m98ULE7yUxX-jQgnPZYPuSz3Ap"/>
+<div class="absolute inset-0 bg-black/10 flex items-end p-4">
+<div class="w-full">
+<div class="flex justify-between text-white font-label-bold text-xs mb-1">
+<span>RESEARCHING: SUPER SOY</span>
+<span>75%</span>
+</div>
+<div class="h-4 w-full bg-white/30 rounded-full overflow-hidden border-2 border-white/50">
+<div class="h-full bg-[#60a5fa] glint transition-all duration-1000" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Hydroponics Lab</h3>
+<span class="material-symbols-outlined text-[#3b82f6] text-[32px]">science</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">High-tech facility for indoor crops and genetic crop enhancement.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t-2 border-surface-container">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span class="font-label-bold text-label-bold">ACTIVE</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-bold text-label-bold border-b-4 border-primary transition-all active:translate-y-1 active:border-b-0 pressed-state">
+                            MANAGE
+                        </button>
+</div>
+</div>
+</div>
+<!-- Tool Workshop -->
+<div class="bg-surface-container-lowest rounded-xl border-2 border-outline-variant overflow-hidden chunky-shadow">
+<div class="bg-secondary h-32 relative overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60" data-alt="A cozy, rustic woodworking and metal tool workshop filled with handcrafted farming implements and golden tools hanging on a wooden pegboard. The warm ambient lighting highlights the textures of wood and metal, creating a nostalgic and productive atmosphere. The visual style is thick, chunky, and tactile, matching a premium casual farming game design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQuqq2ffkYwOU9h0bw7a7LOkBRQ2s3h7Uz8XOFJ0zHAn5_ysjXv4fipEZoLvhyTCa0222MTiZXhny6ji-mkOkQNRn1UX_Rstjv6omlyppMaxboOXQedTxdAENrWU4CMgY4NCs2FxvI0GhxxGK-IIKO_BkFGZLw4ogGwiOBt7icbbZFNlsibN_tBojr8LxZVg8YX9Zvzj9yKMyh54ZayAw7nR3I1vhw2Op3PYlt61TJtbX46QaG5EwNFAB6UUyKTyA1wdnCt4jFQWD5"/>
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full border-2 border-secondary font-label-bold text-xs">
+                        IDLE
+                    </div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Tool Workshop</h3>
+<span class="material-symbols-outlined text-secondary text-[32px]">build</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Crafts advanced farming tools like golden watering cans or automated shears.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t-2 border-surface-container">
+<div class="flex items-center gap-1 text-on-surface">
+<div class="w-5 h-5 rounded-full bg-[#FFD700] border border-[#B8860B]"></div>
+<span class="font-label-bold text-label-bold">5,000 G</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-bold text-label-bold border-b-4 border-primary transition-all active:translate-y-1 active:border-b-0 pressed-state">
+                            BUILD
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Decorative spacer for scroll -->
+<div class="h-12"></div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container dark:bg-surface-container-highest border-t-4 border-outline dark:border-outline-variant rounded-t-xl shadow-[0_-4px_0_0_rgba(0,0,0,0.05)]">
+<!-- Farm Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-high transition-colors active:translate-y-1 transition-all duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="potted_plant">potted_plant</span>
+<span class="font-label-bold text-label-bold">Farm</span>
+</a>
+<!-- Storage Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-high transition-colors active:translate-y-1 transition-all duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-bold text-label-bold">Storage</span>
+</a>
+<!-- Market Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-high transition-colors active:translate-y-1 transition-all duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-label-bold text-label-bold">Market</span>
+</a>
+<!-- Industrial Tab (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg border-b-4 border-primary py-1 px-3 active:translate-y-1 active:border-b-0 transition-all duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="factory" style="font-variation-settings: 'FILL' 1;">factory</span>
+<span class="font-label-bold text-label-bold">Industrial</span>
+</a>
+<!-- Kitchen Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-3 hover:bg-surface-container-high transition-colors active:translate-y-1 transition-all duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="skillet">skillet</span>
+<span class="font-label-bold text-label-bold">Kitchen</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for progress bar
+        const progressBar = document.querySelector('.transition-all.duration-1000');
+        if (progressBar) {
+            setInterval(() => {
+                let currentWidth = parseInt(progressBar.style.width);
+                if (currentWidth < 98) {
+                    progressBar.style.width = (currentWidth + 0.1) + '%';
+                }
+            }, 5000);
+        }
+
+        // Add touch feedback for chunky buttons
+        document.querySelectorAll('.pressed-state').forEach(button => {
+            button.addEventListener('touchstart', () => {
+                button.classList.add('translate-y-1', 'border-b-0');
+            });
+            button.addEventListener('touchend', () => {
+                button.classList.remove('translate-y-1', 'border-b-0');
+            });
+        });
+    </script>
+</body></html>
