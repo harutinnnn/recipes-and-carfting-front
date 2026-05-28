@@ -1,5 +1,3 @@
-import {FieldsComponent} from "@/components/main/FieldsComponent";
-import {FactoriesComponent} from "@/components/main/FactoriesComponent";
 
 export const MainPage = () => {
 
@@ -8,8 +6,6 @@ export const MainPage = () => {
 
         <div>
 
-            <FieldsComponent/>
-            <FactoriesComponent/>
 
         </div>
     )

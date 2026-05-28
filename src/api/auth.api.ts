@@ -12,7 +12,6 @@ export type ForgotPayload = {
 export type RegisterPayload = {
     email: string;
     name: string;
-    nickname: string;
     gender: string;
     password: string;
 };

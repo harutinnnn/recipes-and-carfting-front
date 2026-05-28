@@ -1,4 +1,3 @@
-import '../components/auth/Auth.css'
 import {LoginComponent} from "@/components/auth/LoginComponent";
 import {useEffect, useState} from "react";
 import RegisterComponent from "@/components/auth/RegisterComponent";

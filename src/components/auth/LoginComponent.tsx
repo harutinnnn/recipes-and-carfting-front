@@ -9,6 +9,7 @@ import {useAuth} from "@/hooks/useAuth";
 import {setAuthTokens} from "@/helpers/authStorage";
 import {Alerts} from "@/components/Alerts";
 import {AlertEnums} from "@/enums/AlertEnums";
+import {Mail, Lock, ArrowRight} from "lucide-react";
 
 export const LoginComponent = ({cb}: { cb: AuthViewCallback }) => {
 
@@ -102,21 +103,33 @@ export const LoginComponent = ({cb}: { cb: AuthViewCallback }) => {
                     <Form>
                         <div className="input-row">
                             <label htmlFor="email">Email</label>
-                            <Field type="text" id={"email"} name={"email"} placeholder="jowhn.smith@economy.com"/>
+                            <div className="nested-icon">
+                                <Field type="text" id={"email"} name={"email"} placeholder="jowhn.smith@economy.com"
+                                       className={"email"}/>
+                                <Mail size={25}/>
+                            </div>
                             <ErrorMessage name="email" component="div" className="error-msg"/>
                         </div>
 
                         <div className="input-row">
-                            <label htmlFor="password">Password</label>
-                            <Field type="password" id={"password"} name={"password"}/>
-                            <ErrorMessage name="password" component="div" className="error-msg"/>
-                            <div className={"link forgot"} onClick={() => cb('forgot')}>Forgot
+                            <label htmlFor="password" className={"label-have-right-text"}>
+                                <span>Password</span>
+                                <div className={"link forgot right-text"} onClick={() => cb('forgot')}>Forgot
+                                </div>
+                            </label>
+                            <div className="nested-icon">
+                                <Field type="password" id={"password"} name={"password"} className={"password"}/>
+                                <Lock size={25}/>
                             </div>
+                            <ErrorMessage name="password" component="div" className="error-msg"/>
+
                         </div>
 
 
                         <div className="input-row">
-                            <button className={"btn green"} type={'submit'}>Login</button>
+                            <button className={"btn success icon-btn"} type={'submit'}><span>Login to game</span>
+                                <ArrowRight size={22}/>
+                            </button>
                         </div>
 
                     </Form>
@@ -130,12 +143,15 @@ export const LoginComponent = ({cb}: { cb: AuthViewCallback }) => {
 
 
                 <div className="input-row">
-                    <button className={"btn green icon-btn"}>
+                    <button className={"btn g-btn icon-btn"}>
                         <img src="/public/images/icons/google.svg" alt=""/> <span>Continue with google</span>
                     </button>
                 </div>
 
-                <div className={"link"} onClick={() => cb('register')}>Register
+                <div className="login-register-link">
+                    <span>New here?</span>
+                    <div className={"link bold"} onClick={() => cb('register')}>Register
+                    </div>
                 </div>
 
             </div>

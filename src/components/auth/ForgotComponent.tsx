@@ -1,11 +1,12 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup"
-import type {AuthViewCallback} from "@/types/auth";
 import {AxiosError} from "axios";
 import {forgotRequest} from "@/api/auth.api";
 import {useState} from "react";
 import {Alerts} from "@/components/Alerts";
 import {AlertEnums} from "@/enums/AlertEnums";
+import {AuthViewCallback} from "@/types/auth";
+import {ArrowRight, Mail} from "lucide-react";
 
 export const ForgotComponent = ({cb}: { cb: AuthViewCallback }) => {
 
@@ -73,18 +74,23 @@ export const ForgotComponent = ({cb}: { cb: AuthViewCallback }) => {
                     <Form>
                         <div className="input-row">
                             <label htmlFor="email">Email</label>
-                            <Field type="text" id={"email"} name={"email"} placeholder="jowhn.smith@economy.com"/>
+                            <div className="nested-icon">
+                                <Field type="text" id={"email"} name={"email"} placeholder="jowhn.smith@economy.com"
+                                       className={"email"}/>
+                                <Mail size={25}/>
+                            </div>
                             <ErrorMessage name="email" component="div" className="error-msg"/>
                         </div>
 
                         <div className="input-row">
-                            <button className={"btn green"}>Forgot</button>
+                            <button className={"btn success"} type={'submit'}>
+                                Forgot
+                            </button>
                         </div>
-
                     </Form>
                 </Formik>
 
-                <div className={"link"} onClick={() => cb('login')}>Login
+                <div className={"link bold"} onClick={() => cb('login')}>Login
                 </div>
 
             </div>
