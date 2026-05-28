@@ -130,7 +130,7 @@
     color: var(--main-text-color);
     transition: all 0.1s;
 
-    &:hover {
+    &:active {
         background: var(--white);
         color: var(--main-text-color);
         border: solid 3px var(--border-brown);
