@@ -128,7 +128,7 @@
     border: solid 3px var(--border-brown);
     border-bottom: solid 7px var(--border-brown);
     color: var(--main-text-color);
-    transition: all 0.3s;
+    transition: all 0.1s;
 
     &:hover {
         background: var(--white);
