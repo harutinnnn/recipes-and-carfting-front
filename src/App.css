@@ -134,8 +134,8 @@
         background: var(--white);
         color: var(--main-text-color);
         border: solid 3px var(--border-brown);
-        height: 50px;
-
+        margin-top: 4px;
+        height: 53px;
     }
 }
 
