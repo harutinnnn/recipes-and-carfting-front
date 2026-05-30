@@ -25,9 +25,12 @@
 
     --border-patel-green: rgb(188 203 185);
     --input-bg-pastel-blue: rgb(236 245 251);
+    --focused-border-color-dark: #004c20;
     --focused-border-color: #006e2f;
     --focused-border-color-light: #02853a;
     --focused-border-color-lighter: #0db555;
+
+    --border-color-green-pastel: #6d7b6c;
 
     --light-gray: #818181;
     --gray: #3c3c3c;
@@ -53,13 +56,20 @@ html, body {
 #root {
     width: 100%;
     min-height: 100%;
-    max-width: 440px;
-    margin: 0 auto;
+    /*max-width: 440px;*/
     background: var(--main-bg);
     color: var(--main-text-color);
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
+}
+
+.main-layout {
+    width: 100%;
+    min-height: 100%;
+    max-width: 440px;
+    padding: 20px;
+    margin: 0 auto 70px;
 }
 
 .flex {
@@ -90,7 +100,7 @@ html, body {
     gap: 20px;
 }
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
@@ -126,6 +136,6 @@ html, body {
 
 /*Margins*/
 
-.d-none{
+.d-none {
     display: none;
 }
