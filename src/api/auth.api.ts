@@ -37,8 +37,8 @@ export type ErrorResponse = {
 }
 
 export async function registerRequest(
-    data: RegisterPayload
-): Promise<LoginResponse> {
+    data: FormData
+): Promise<LoginResponse | ErrorResponse> {
     const response = await api.post<LoginResponse>("/auth/register", data);
     return response.data;
 }

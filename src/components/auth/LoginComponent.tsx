@@ -9,7 +9,7 @@ import {useAuth} from "@/hooks/useAuth";
 import {setAuthTokens} from "@/helpers/authStorage";
 import {Alerts} from "@/components/Alerts";
 import {AlertEnums} from "@/enums/AlertEnums";
-import {Mail, Lock, ArrowRight} from "lucide-react";
+import {Mail, Lock, ArrowRight, Wheat} from "lucide-react";
 
 export const LoginComponent = ({cb}: { cb: AuthViewCallback }) => {
 
@@ -85,7 +85,12 @@ export const LoginComponent = ({cb}: { cb: AuthViewCallback }) => {
 
 
             <div className={"auth-header"}>
+
+                <div className={"auth-header-icon"}>
+                    <Wheat size={64}/>
+                </div>
                 <h1>Sign In</h1>
+                <p>Your field are waiting for you</p>
             </div>
 
             {error && <Alerts text={error} type={AlertEnums.danger} cb={() => {

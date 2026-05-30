@@ -4,16 +4,21 @@ import type {AuthViewCallback} from "@/types/auth";
 import {GenderEnum} from "@/enums/GenderEnum";
 import {capitalize} from "@/helpers/text.helper";
 import {registerRequest} from "@/api/auth.api";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Alerts} from "@/components/Alerts";
 import {AlertEnums} from "@/enums/AlertEnums";
-import {ArrowRight, Lock, Mail, User} from "lucide-react";
+import {Camera, Lock, Mail, User} from "lucide-react";
 
 const RegisterComponent = ({cb}: { cb: AuthViewCallback }) => {
 
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
     const [disableBtn, setDisableBtn] = useState(false);
+
+    const [avatar, setAvatar] = useState<string | null>(null);
+
+    useEffect(() => {
+    }, [])
 
     const registerSchema = Yup.object({
         email: Yup.string().email("Invalid email").required("Required"),
@@ -33,6 +38,7 @@ const RegisterComponent = ({cb}: { cb: AuthViewCallback }) => {
         gender: GenderEnum.MALE,
         password: string;
         passwordConf: string;
+        avatar: File | null;
     };
 
     const handleRegisterSubmit = async (values: RegisterFormValues) => {
@@ -44,11 +50,19 @@ const RegisterComponent = ({cb}: { cb: AuthViewCallback }) => {
         const gender = values.gender;
         const password = values.password;
 
+        const formData = new FormData();
+
+        formData.append("email", email);
+        formData.append("name", name);
+        formData.append("gender", gender);
+        formData.append("password", password);
+
+        if (values.avatar) {
+            formData.append("avatar", values.avatar);
+        }
 
 
-        const data = await registerRequest({
-            email, name, gender, password
-        })
+        const data = await registerRequest(formData)
 
         if ("error" in data) {
             setError(data.error as string);
@@ -74,10 +88,6 @@ const RegisterComponent = ({cb}: { cb: AuthViewCallback }) => {
         <div>
 
 
-            <div className={"auth-header"}>
-                <h1>Sign Up</h1>
-            </div>
-
             {error && <Alerts text={error} type={AlertEnums.danger} cb={() => {
                 setError(null)
             }}/>}
@@ -85,88 +95,120 @@ const RegisterComponent = ({cb}: { cb: AuthViewCallback }) => {
                 setSuccess(null)
             }}/>}
 
-            <div className={"login-form"}>
+            <div className={"login-form register-form"}>
                 <Formik initialValues={{
                     email: "",
                     name: "",
                     gender: GenderEnum.MALE,
                     password: "",
                     passwordConf: "",
+                    avatar: null
                 }}
                         onSubmit={handleRegisterSubmit}
                         validationSchema={registerSchema}
                 >
-                    <Form>
-                        <div className="input-row">
-                            <label htmlFor="email">Email</label>
-                            <div className="nested-icon">
-                                <Field type="text" id={"email"} name={"email"} placeholder="jowhn.smith@economy.com"
-                                       className={"email"}/>
-                                <Mail size={25}/>
+                    {({setFieldValue}) => (
+                        <Form>
+
+                            <div className={"auth-header"}>
+                                <h1>Sign Up</h1>
+                                <p>Your cozy farm adventure starts here</p>
                             </div>
-                            <ErrorMessage name="email" component="div" className="error-msg"/>
-                        </div>
-
-                        <div className="input-row">
-                            <label htmlFor="name">Name</label>
-                            <div className="nested-icon">
-                                <Field type="text" id={"name"} name={"name"} placeholder="John Smitt"/>
-                                <User size={25}/>
-
-                            </div>
-                            <ErrorMessage name="name" component="div" className="error-msg"/>
-                        </div>
-
-                        <div className="input-row">
-                            <label htmlFor="email">Your Gender</label>
 
 
-                            <div className={"gender-items"}>
-                                {GenderEnum && Object.values(GenderEnum).map(value => (
-                                    <label className={"gender-item"} htmlFor={'gender-' + value} key={value}>
-                                        {capitalize(value)}
-                                        <Field type="radio" name={"gender"} value={value} id={'gender-' + value}
-                                               className={"d-none"}/>
+                            <div className={"auth-avatar-container"}>
+
+                                <div className="inner-auth-avatar-container">
+                                    <label htmlFor="avatar" style={{backgroundImage: `url(${avatar})`}}>
+                                        <input type={"file"} id={"avatar"} name={"avatar"} className={'d-none'}
+                                               onChange={(e) => {
+
+                                                   if (e.currentTarget.files) {
+                                                       setAvatar(URL.createObjectURL((e.currentTarget.files[0])))
+                                                       setFieldValue('avatar', e.currentTarget.files?.[0])
+                                                   }
+
+                                               }}/>
+                                        {!avatar && <Camera size={52}/>}
+
                                     </label>
-                                ))}
+                                    <div>Choose your avatar</div>
+                                </div>
+
                             </div>
 
 
-                            <ErrorMessage name="gender" component="div" className="error-msg"/>
-                        </div>
-
-                        <div className="input-row">
-                            <label htmlFor="password" className={"label-have-right-text"}>
-                                Password
-                            </label>
-                            <div className="nested-icon">
-                                <Field type="password" id={"password"} name={"password"} className={"password"}/>
-                                <Lock size={25}/>
+                            <div className="input-row">
+                                <label htmlFor="email">Email</label>
+                                <div className="nested-icon">
+                                    <Field type="text" id={"email"} name={"email"} placeholder="jowhn.smith@economy.com"
+                                           className={"email"}/>
+                                    <Mail size={25}/>
+                                </div>
+                                <ErrorMessage name="email" component="div" className="error-msg"/>
                             </div>
-                            <ErrorMessage name="password" component="div" className="error-msg"/>
 
-                        </div>
+                            <div className="input-row">
+                                <label htmlFor="name">Name</label>
+                                <div className="nested-icon">
+                                    <Field type="text" id={"name"} name={"name"} placeholder="John Smitt"/>
+                                    <User size={25}/>
 
-                        <div className="input-row">
-                            <label htmlFor="passwordConf" className={"label-have-right-text"}>
-                                Password confirmation
-
-                            </label>
-                            <div className="nested-icon">
-                                <Field type="password" id={"passwordConf"} name={"passwordConf"}
-                                       className={"passwordConf"}/>
-                                <Lock size={25}/>
+                                </div>
+                                <ErrorMessage name="name" component="div" className="error-msg"/>
                             </div>
-                            <ErrorMessage name="passwordConf" component="div" className="error-msg"/>
 
-                        </div>
+                            <div className="input-row">
+                                <label htmlFor="email">Your Gender</label>
 
-                        <div className="input-row">
-                            <button className={"btn success"} type={'submit'} disabled={disableBtn}>Register
-                            </button>
-                        </div>
 
-                    </Form>
+                                <div className={"gender-items"}>
+                                    {GenderEnum && Object.values(GenderEnum).map(value => (
+                                        <label className={"gender-item"} htmlFor={'gender-' + value} key={value}>
+                                            {capitalize(value)}
+                                            <Field type="radio" name={"gender"} value={value} id={'gender-' + value}
+                                                   className={"d-none"}/>
+                                        </label>
+                                    ))}
+                                </div>
+
+
+                                <ErrorMessage name="gender" component="div" className="error-msg"/>
+                            </div>
+
+                            <div className="input-row">
+                                <label htmlFor="password" className={"label-have-right-text"}>
+                                    Password
+                                </label>
+                                <div className="nested-icon">
+                                    <Field type="password" id={"password"} name={"password"} className={"password"}/>
+                                    <Lock size={25}/>
+                                </div>
+                                <ErrorMessage name="password" component="div" className="error-msg"/>
+
+                            </div>
+
+                            <div className="input-row">
+                                <label htmlFor="passwordConf" className={"label-have-right-text"}>
+                                    Password confirmation
+
+                                </label>
+                                <div className="nested-icon">
+                                    <Field type="password" id={"passwordConf"} name={"passwordConf"}
+                                           className={"passwordConf"}/>
+                                    <Lock size={25}/>
+                                </div>
+                                <ErrorMessage name="passwordConf" component="div" className="error-msg"/>
+
+                            </div>
+
+                            <div className="input-row">
+                                <button className={"btn success"} type={'submit'} disabled={disableBtn}>Register
+                                </button>
+                            </div>
+
+                        </Form>
+                    )}
                 </Formik>
 
                 <div className={'text-rl-lines'}>
@@ -182,8 +224,12 @@ const RegisterComponent = ({cb}: { cb: AuthViewCallback }) => {
                     </button>
                 </div>
 
-                <div className={"link"} onClick={() => cb('login')}>Login
+                <div className="login-register-link">
+                    <span>Already have a farm?</span>
+                    <div className={"link bold"} onClick={() => cb('login')}>Login
+                    </div>
                 </div>
+
 
             </div>
         </div>

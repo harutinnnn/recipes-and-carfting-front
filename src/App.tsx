@@ -21,6 +21,8 @@ function App() {
 
                 <Route path="/wrong-activation-code" element={<ActivationCode/>}/>
 
+                <Route path="/wrong-activation-code" element={<ActivationCode/>}/>
+
                 <Route
                     element={
                         <ProtectedRoute>
