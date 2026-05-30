@@ -8,8 +8,54 @@ header {
     background-color: var(--main-bg);
 }
 
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.user-info .user-avatar {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.user-info .user-avatar img {
+    border: solid 2px var(--focused-border-color-light);
+    border-radius: 50%;
+    height: 45px;
+}
+
+.user-info .user-level {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--focused-border-color-light);
+}
+
+.user-info .user-money {
+    border: solid 2px var(--border-brown);
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 10px;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: 10px;
+    border-bottom-width: 4px;
+}
+
+.user-info .user-money svg {
+    stroke: var(--border-brown);
+}
 
 .footer-tab-nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -19,10 +65,15 @@ header {
     border-top: solid 3px var(--border-color-green-pastel);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 5px;
     gap: 15px;
+}
+
+.footer-tab-nav > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-tab-nav .tab-nav {
@@ -35,10 +86,12 @@ header {
     gap: 3px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s;
     border-bottom: solid 4px transparent;
+    width: 50px;
+    height: 50px;
 
-    &:hover{
+    &:hover {
         color: var(--focused-border-color-dark);
         background-color: var(--focused-border-color-lighter);
         border-bottom: solid 4px var(--focused-border-color-dark);

@@ -3,7 +3,7 @@ export type User = {
     name: string;
     email: string;
     refreshToken: string;
-    avatar: string;
+    avatarUrl: string;
     gender: 'male' | 'female' | 'unknown';
     gameMoney: number;
     realMoney: number;
