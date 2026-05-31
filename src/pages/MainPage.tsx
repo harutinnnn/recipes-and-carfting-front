@@ -1,3 +1,5 @@
+import {FieldsListComponent} from "@/components/fields/FieldsListCoponent";
+import {UserEnergyComponent} from "@/components/user/UserEnergyComponent";
 
 export const MainPage = () => {
 
@@ -6,6 +8,9 @@ export const MainPage = () => {
 
         <div>
 
+            <UserEnergyComponent/>
+
+            <FieldsListComponent/>
 
         </div>
     )

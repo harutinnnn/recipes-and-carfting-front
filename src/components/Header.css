@@ -6,6 +6,7 @@ header {
     top: 0;
     left: 0;
     background-color: var(--main-bg);
+    z-index: 9999;
 }
 
 .user-info {
@@ -92,9 +93,9 @@ header {
     height: 50px;
 
     &:hover {
-        color: var(--focused-border-color-dark);
-        background-color: var(--focused-border-color-lighter);
-        border-bottom: solid 4px var(--focused-border-color-dark);
+        /*color: var(--focused-border-color-dark);*/
+        background-color: var(--taf-hover-bg);
+        border-bottom: solid 4px var(--taf-hover-bg-dark);
     }
 }
 

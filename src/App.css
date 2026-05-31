@@ -69,7 +69,6 @@
 }
 
 
-
 .auth-avatar-container .inner-auth-avatar-container label svg {
     stroke: var(--border-patel-green);
     transition: 0.3s;
@@ -270,4 +269,45 @@
 
 .label-have-right-text .right-text {
     margin-left: auto;
+}
+
+.user-energy {
+
+}
+
+.user-energy .user-energy-progress-bar {
+    height: 20px;
+    border-radius: 10px;
+    border: solid 2px var(--border-patel-green);
+    margin-bottom: 20px;
+    background-color: var(--input-bg-pastel-blue);
+}
+
+.user-energy .user-energy-progress-bar .user-energy-progress {
+    height: 16px;
+    background-color: var(--focused-border-color-light);
+    border-radius: 10px;
+}
+
+
+.user-energy-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.user-energy-info > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    color: var(--focused-border-color);
+}
+
+.user-energy-info > div:nth-child(2) {
+    margin-left: auto;
+    color: var(--focused-border-color);
+    font-weight: bold;
+    font-size: 18px;
 }

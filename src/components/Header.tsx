@@ -20,7 +20,7 @@ export const Header = () => {
 
                 <div className="user-money">
                     <CircleDollarSign size={28}/>
-                    <span>{user?.gameMoney.toLocaleString()}</span>
+                    <span>{user?.gameMoney.toLocaleString()} G</span>
                 </div>
             </div>
 

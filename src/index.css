@@ -22,6 +22,7 @@
 
 
     --border-brown: #944a23;
+    --brown-bg-light: #e3e0df;
 
     --border-patel-green: rgb(188 203 185);
     --input-bg-pastel-blue: rgb(236 245 251);
@@ -35,7 +36,14 @@
     --light-gray: #818181;
     --gray: #3c3c3c;
 
-    --error-color: #ba1a1a
+
+    --taf-hover-bg: rgb(224 233 239);
+    --taf-hover-bg-dark: rgb(159 168 174);
+    --error-color: #ba1a1a;
+
+    --foeld-progress-bg: #fd9e70;
+
+    --field-item-height: 200px
 }
 
 * {

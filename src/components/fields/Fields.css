@@ -1,0 +1,58 @@
+.user-fields {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    gap: 20px;
+}
+
+.user-fields .field-item {
+    border: 2px solid var(--border-brown);
+    border-bottom-width: 5px;
+    height: var(--field-item-height);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+
+
+    &:hover img {
+        scale: 1.1;
+    }
+}
+
+.user-fields .field-item .field-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: .3s;
+}
+
+.user-fields .field-item .field-progress {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 10px);
+    height: 10px;
+    border-radius: 5px;
+    border: solid 1px var(--border-brown);
+    background-color: var(--brown-bg-light);
+    z-index: 2;
+}
+
+.user-fields .field-item .field-progress .progress-bar {
+    background-color: var(--foeld-progress-bg);
+    height: 8px;
+    border-radius: 8px;
+}
+
+.add-new-field {
+    height: var(--field-item-height);
+    border: 2px dashed var(--border-brown);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--brown-bg-light);
+}
