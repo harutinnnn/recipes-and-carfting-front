@@ -18,6 +18,18 @@
     }
 }
 
+.user-fields .field-item .field-seed-name {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 2;
+    font-size: 13px;
+    background-color: var(--main-text-color);
+    color: var(--input-bg-pastel-blue);
+    padding: 4px 7px;
+    border-radius: 11px;
+}
+
 .user-fields .field-item .field-img {
     position: absolute;
     left: 0;
