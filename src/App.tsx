@@ -1,4 +1,5 @@
 import './App.css'
+import './Market.css'
 import {Route, Routes} from "react-router-dom";
 import AuthLayout from "@/layouts/AuthLayout";
 import ProtectedLayout from "@/layouts/ProtectedLayout";
@@ -7,6 +8,7 @@ import {MainPage} from "@/pages/MainPage";
 import {Toaster} from "react-hot-toast";
 import ActivationCode from "@/pages/ActivationCode";
 import {AuthPage} from "@/pages/AuthPage";
+import {StorePage} from "@/pages/StorePage";
 
 function App() {
 
@@ -32,6 +34,7 @@ function App() {
                 >
 
                     <Route path="/" element={<MainPage/>}/>
+                    <Route path="/store" element={<StorePage/>}/>
 
                 </Route>
             </Routes>
@@ -39,6 +42,7 @@ function App() {
             <Toaster
                 position="top-center"
                 reverseOrder={false}
+                containerClassName={"toast-container"}
             />
         </div>
     )

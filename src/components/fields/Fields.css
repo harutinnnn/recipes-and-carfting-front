@@ -11,10 +11,15 @@
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-
+    cursor: pointer;
 
     &:hover img {
-        scale: 1.1;
+        scale: 1.05;
+    }
+
+    &:hover .seed-btn {
+        visibility: visible;
+        opacity: 1;
     }
 }
 
@@ -57,6 +62,16 @@
     background-color: var(--foeld-progress-bg);
     height: 8px;
     border-radius: 8px;
+}
+.user-fields .field-item .seed-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s;
 }
 
 .add-new-field {

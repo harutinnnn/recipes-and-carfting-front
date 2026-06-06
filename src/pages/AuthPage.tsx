@@ -16,11 +16,7 @@ export const AuthPage = () => {
     useEffect(() => {
 
         if (user) {
-            if (user?.isAdmin) {
-                navigate("/admin", {replace: true});
-            } else {
-                navigate("/", {replace: true});
-            }
+            navigate("/", {replace: true});
         }
     }, [user, navigate]);
 

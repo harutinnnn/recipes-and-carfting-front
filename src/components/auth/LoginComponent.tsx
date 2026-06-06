@@ -59,13 +59,7 @@ export const LoginComponent = ({cb}: { cb: AuthViewCallback }) => {
                 }
 
                 login(data.token, userToSet);
-
-                if (userToSet.isAdmin) {
-                    navigate("/admin");
-                } else {
-                    navigate("/");
-                }
-
+                navigate("/");
             }
 
         } catch (err) {

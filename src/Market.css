@@ -1,0 +1,58 @@
+.market-seeds-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.market-seed-item {
+    border: 2px solid var(--border-brown);
+    background-color: var(--brown-bg-light);
+    border-bottom-width: 5px;
+    height: var(--field-item-height);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover img {
+        scale: 1.1;
+    }
+}
+
+.market-seed-title {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 10;
+    padding: 3px 8px;
+    border-radius: 10px;
+    background-color: var(--brown-bg-light);
+    color: var(--border-brown);
+}
+
+.market-seed-item .market-seed-icon {
+    width: 100%;
+    height: 100%;
+    transition: scale 0.3s;
+}
+
+.market-seed-item .buy-seed-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    z-index: 10;
+}
+
+
+.user-seeds {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.user-seeds .market-seed-item {
+    height: var(--field-item-height);
+    width: auto;
+}

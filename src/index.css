@@ -23,6 +23,7 @@
 
     --border-brown: #944a23;
     --brown-bg-light: #e3e0df;
+    --brown-bg-light-op: rgb(227 224 223 / 0.8);
 
     --border-patel-green: rgb(188 203 185);
     --input-bg-pastel-blue: rgb(236 245 251);
@@ -43,7 +44,7 @@
 
     --foeld-progress-bg: #fd9e70;
 
-    --field-item-height: 200px
+    --field-item-height: 200px;
 }
 
 * {
@@ -78,6 +79,10 @@ html, body {
     max-width: 440px;
     padding: 20px;
     margin: 0 auto 70px;
+}
+
+.page-title {
+    font-size: 26px;
 }
 
 .flex {

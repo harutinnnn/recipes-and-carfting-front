@@ -18,12 +18,14 @@ export function ConfirmModal({
     return (
         <div className="confirm-modal">
             <div className={"inner-confirm-modal"}>
-                <h2>{title}</h2>
+                <h2 dangerouslySetInnerHTML={{
+                    __html: title,
+                }}></h2>
                 <p className={"modal-desc"}>{description}</p>
 
                 <div style={{display: "flex", gap: 10}}>
-                    <button onClick={onCancel} className={"btn danger sm"}>Cancel</button>
-                    <button onClick={onConfirm} className={"btn  green sm"}>
+                    <button onClick={onCancel} className={"btn info sm"}>Cancel</button>
+                    <button onClick={onConfirm} className={"btn  success sm"}>
                         Confirm
                     </button>
                 </div>

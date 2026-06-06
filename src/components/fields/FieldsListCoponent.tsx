@@ -30,7 +30,7 @@ export const FieldsListComponent = () => {
 
             {fields && fields.map((field) => {
                 return (
-                    <FieldComponent field={field}/>
+                    <FieldComponent field={field} key={field.userFields.id} cb={getFields}/>
                 )
 
             })}
