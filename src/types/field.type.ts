@@ -16,9 +16,13 @@ export type FieldItem = {
     userFields: FieldType,
     seeds: SeedType,
     products: ProductType,
-    seedsProgressImage: SeedsProgressImageType
+    seedsProgressImage: SeedsProgressImageType[]
 }
 
 export type UserFieldsResponse = {
     items: FieldItem[]
+};
+
+export type CollectUserFieldType = {
+    field: FieldItem
 };

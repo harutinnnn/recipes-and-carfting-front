@@ -2,7 +2,6 @@ import api from "@/api/axios";
 import {
     BuySeedProductTypeResponse,
     SeedProductTypeResponse,
-    SeedType,
     UserSeedsResponse,
     UserSeedType
 } from "@/types/seed.type";

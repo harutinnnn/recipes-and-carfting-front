@@ -8,7 +8,11 @@ import {MainPage} from "@/pages/MainPage";
 import {Toaster} from "react-hot-toast";
 import ActivationCode from "@/pages/ActivationCode";
 import {AuthPage} from "@/pages/AuthPage";
-import {StorePage} from "@/pages/StorePage";
+import {StoragePage} from "@/pages/StoragePage";
+import {MarketPage} from "@/pages/MarketPage";
+import {FactoriesPage} from "@/pages/FactoriesPage";
+import {KitchenPage} from "@/pages/KitchenPage";
+import {ProfilePage} from "@/pages/ProfilePage";
 
 function App() {
 
@@ -34,7 +38,11 @@ function App() {
                 >
 
                     <Route path="/" element={<MainPage/>}/>
-                    <Route path="/store" element={<StorePage/>}/>
+                    <Route path="/store" element={<MarketPage/>}/>
+                    <Route path="/storage" element={<StoragePage/>}/>
+                    <Route path="/factory" element={<FactoriesPage/>}/>
+                    <Route path="/kitchen" element={<KitchenPage/>}/>
+                    <Route path="/profile" element={<ProfilePage/>}/>
 
                 </Route>
             </Routes>

@@ -38,7 +38,7 @@ export type UserSeedType = {
 export type UserSeedDataType = {
     seeds: SeedType,
     products: ProductType
-    userSeeds: UserSeedType[]
+    userSeeds: UserSeedType
 }
 
 export type UserSeedsResponse = {

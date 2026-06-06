@@ -1,13 +1,17 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {SeedProductType} from "@/types/seed.type";
 import {buySeed, getSeeds} from "@/api/seeds.api";
 import {ConfirmModal} from "@/components/ConfirmModal";
 import toast from "react-hot-toast";
 import {useAuth} from "@/hooks/useAuth";
+import {CircleDollarSign} from "lucide-react";
 
-export const StorePage = () => {
+export const MarketPage = () => {
 
     const {refreshUser} = useAuth();
+
+    const elementRef = useRef<HTMLDivElement | null>(null)
+    const [fieldsWidth, setFieldsWidth] = useState<number>(0)
 
     const [seeds, setSeeds] = useState<SeedProductType[]>([]);
     const [seedId, setSeedId] = useState<number | null>(null);
@@ -26,7 +30,28 @@ export const StorePage = () => {
         (async () => {
             await getSeedsHandle()
         })()
+
+
+
+
     }, [setSeeds])
+
+    useEffect(() => {
+        const updateWidth = () => {
+            if (elementRef.current) {
+                setFieldsWidth((elementRef.current.offsetWidth/2));
+            }
+        };
+
+
+        updateWidth(); // initial width
+        window.addEventListener('resize', updateWidth);
+
+
+        return () => {
+            window.removeEventListener('resize', updateWidth);
+        };
+    });
 
 
     const handleBuySeed = async (seedId: number) => {
@@ -40,21 +65,23 @@ export const StorePage = () => {
         } else {
             toast.success('Successfully buying seed')
             await refreshUser();
+            // setOpenConfModal(false);
         }
     };
 
     return (
 
         <div>
-            <h1 className={"page-title"}>Store</h1>
+            <h1 className={"page-title"}>Market</h1>
 
-            <div className={"market-seeds-list"}>
+            <div className={"market-seeds-list"} ref={elementRef}>
 
                 {seeds && seeds.map(seed => {
                     return (
-                        <div className={'market-seed-item'}>
+                        <div className={'market-seed-item'} style={{height: `${fieldsWidth}px`}} key={seed.seeds.title}>
                             <div className={"market-seed-title"}>
-                                {seed.seeds.title}
+                                <span>{seed.seeds.title}</span> - <span>{seed.seeds.price}</span> <CircleDollarSign
+                                size={16}/>
                             </div>
 
                             <img src={import.meta.env.VITE_API_URL + seed.seeds.icon} alt={seed.seeds.title.toString()}

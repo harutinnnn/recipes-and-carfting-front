@@ -24,7 +24,7 @@ export function ConfirmModal({
                 <p className={"modal-desc"}>{description}</p>
 
                 <div style={{display: "flex", gap: 10}}>
-                    <button onClick={onCancel} className={"btn info sm"}>Cancel</button>
+                    <button onClick={onCancel} className={"btn info sm"}>Close</button>
                     <button onClick={onConfirm} className={"btn  success sm"}>
                         Confirm
                     </button>

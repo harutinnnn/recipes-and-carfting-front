@@ -40,10 +40,10 @@ header {
     height: 40px;
     border-radius: 20px;
     padding: 0 10px;
-    align-items: center;
     display: flex;
-    gap: 10px;
-    font-size: 22px;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
     font-weight: bold;
     margin-left: auto;
     margin-right: 10px;
@@ -56,7 +56,7 @@ header {
 
 .footer-tab-nav {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     position: fixed;
     bottom: 0;
     left: 0;

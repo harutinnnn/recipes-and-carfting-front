@@ -28,6 +28,11 @@
     border-radius: 10px;
     background-color: var(--brown-bg-light);
     color: var(--border-brown);
+    border: 1px solid var(--border-brown);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
 }
 
 .market-seed-item .market-seed-icon {
@@ -46,6 +51,20 @@
 }
 
 
+.sell-btn-group {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.market-seed-item .sell-product-btn {
+    font-size: 14px;
+    z-index: 10;
+}
+
+
 .user-seeds {
     display: flex;
     gap: 10px;
@@ -54,5 +73,5 @@
 
 .user-seeds .market-seed-item {
     height: var(--field-item-height);
-    width: auto;
+    width: var(--field-item-height);
 }

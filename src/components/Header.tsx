@@ -1,6 +1,6 @@
 import './Header.css'
 import {useAuth} from "@/hooks/useAuth";
-import {CircleDollarSign} from "lucide-react";
+import {Banknote, CircleDollarSign} from "lucide-react";
 
 export const Header = () => {
 
@@ -19,8 +19,12 @@ export const Header = () => {
                 </div>
 
                 <div className="user-money">
-                    <CircleDollarSign size={28}/>
-                    <span>{user?.gameMoney.toLocaleString()} G</span>
+                    <span>{user?.gameMoney.toLocaleString()}</span>
+                    <CircleDollarSign size={20}/>
+                    <span>|</span>
+                    <span>{user?.realMoney}</span>
+                    <Banknote size={20}/>
+
                 </div>
             </div>
 

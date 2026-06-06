@@ -195,6 +195,13 @@
     font-size: 15px;
 }
 
+.btn.xs {
+    height: 30px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 12px !important;
+}
+
 .btn.success {
     background: var(--focused-border-color);
     color: var(--white);
@@ -289,24 +296,6 @@
     margin-left: auto;
 }
 
-.user-energy {
-
-}
-
-.user-energy .user-energy-progress-bar {
-    height: 20px;
-    border-radius: 10px;
-    border: solid 2px var(--border-patel-green);
-    margin-bottom: 20px;
-    background-color: var(--input-bg-pastel-blue);
-}
-
-.user-energy .user-energy-progress-bar .user-energy-progress {
-    height: 16px;
-    background-color: var(--focused-border-color-light);
-    border-radius: 10px;
-}
-
 
 .user-energy-info {
     display: flex;
@@ -364,6 +353,8 @@
 
 .ReactModal__Content {
     background-color: var(--brown-bg-light) !important;
+    max-width: calc(100% - 10px);
+    max-height: calc(100% - 10px);
 }
 
 .ReactModal__Content {
@@ -379,7 +370,7 @@
 
 .modal-container {
     width: 100vw;
-    max-width: 800px;
+    max-width: calc(100%);
     margin-top: 20px;
     height: calc(100vh - 100px);
     padding-right: 10px;
@@ -422,6 +413,6 @@
     margin-bottom: 10px;
 }
 
-.toast-container{
+.toast-container {
     z-index: 999999 !important;
 }

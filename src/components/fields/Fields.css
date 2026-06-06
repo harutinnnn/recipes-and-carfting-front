@@ -16,11 +16,6 @@
     &:hover img {
         scale: 1.05;
     }
-
-    &:hover .seed-btn {
-        visibility: visible;
-        opacity: 1;
-    }
 }
 
 .user-fields .field-item .field-seed-name {
@@ -47,11 +42,11 @@
 
 .user-fields .field-item .field-progress {
     position: absolute;
-    bottom: 5px;
+    bottom: 2px;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 10px);
-    height: 10px;
+    width: calc(100% - 4px);
+    height: 5px;
     border-radius: 5px;
     border: solid 1px var(--border-brown);
     background-color: var(--brown-bg-light);
@@ -60,18 +55,30 @@
 
 .user-fields .field-item .field-progress .progress-bar {
     background-color: var(--foeld-progress-bg);
-    height: 8px;
+    height: 4px;
     border-radius: 8px;
 }
+
 .user-fields .field-item .seed-btn {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 50;
-    visibility: hidden;
-    opacity: 0;
+}
+
+.user-fields .field-item .collect-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
     transition: opacity .5s;
+    display: none;
+}
+
+.user-fields .collect-btn.show-collect-btn {
+    display: block;
 }
 
 .add-new-field {
@@ -82,4 +89,43 @@
     align-items: center;
     justify-content: center;
     background-color: var(--brown-bg-light);
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover img {
+        scale: 1.05;
+
+    }
+}
+
+.add-new-field img {
+    width: 100%;
+    height: 100%;
+    position-anchor: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transition: scale .3s;
+}
+
+.add-new-field .add-new-field-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
+    z-index: 2;
+}
+
+.add-new-field .add-new-field-inner span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--input-bg-pastel-blue);
+}
+
+.add-new-field .add-new-field-inner svg {
+    stroke: var(--input-bg-pastel-blue);
 }

@@ -44,7 +44,8 @@ export const UserSeeds = ({field, cb}: { field: FieldItem, cb: () => void }) => 
 
     return (
         <div className={"user-seeds"}>
-            {userSeeds && userSeeds.map(seed => {
+            {!userSeeds || (userSeeds && !userSeeds.length) ? "No seeds found." : ""}
+            {userSeeds && userSeeds.filter(seed => seed.userSeeds.count > 0).map(seed => {
                 return (
                     <div key={seed.seeds.id} className={"market-seed-item"}>
                         <div className={"market-seed-title"}>
@@ -54,25 +55,13 @@ export const UserSeeds = ({field, cb}: { field: FieldItem, cb: () => void }) => 
                              alt=""/>
 
                         <button className={"btn info  sm buy-seed-btn"} onClick={() => {
-                            setOpenConfModal(true);
-                            setSeedId(seed.seeds.id)
-                            setSeedTitle(seed.seeds.title)
-                        }}>Seed {seed.seeds.title}
+                            void handleSeed(Number(seed.seeds.id))
+                        }}>Seed ({seed.userSeeds.count})
                         </button>
 
                     </div>
                 )
             })}
-
-            <ConfirmModal
-                title={`Are you sure do buy a <strong> ${seedTitle} </strong> seed?`}
-                // description={""}
-                open={openConfModal}
-                onCancel={() => setOpenConfModal(false)}
-                onConfirm={() => {
-                    void handleSeed(Number(seedId))
-                }}
-            />
         </div>
     )
 }
