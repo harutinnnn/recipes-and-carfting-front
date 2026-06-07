@@ -69,6 +69,7 @@ header {
     justify-content: center;
     padding: 5px;
     gap: 15px;
+    z-index: 999;
 }
 
 .footer-tab-nav > div {

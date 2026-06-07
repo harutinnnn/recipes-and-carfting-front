@@ -1,6 +1,6 @@
 import {CircleDollarSign, CirclePlus} from "lucide-react";
 import {useEffect, useState} from "react";
-import {buyNewField, getFieldPrice, getUserFields} from "@/api/fields.api";
+import {buyNewField, getFieldPrice} from "@/api/fields.api";
 import {ConfirmModal} from "@/components/ConfirmModal";
 import toast from "react-hot-toast";
 
@@ -30,7 +30,6 @@ export const AddNewFieldComponent = ({width}: { width: number }) => {
         } else {
             setOpen(false);
         }
-        setOpen(true)
     }
 
     return (

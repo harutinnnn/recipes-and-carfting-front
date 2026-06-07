@@ -1,0 +1,12 @@
+Create 5 separate PNG images in a 256x256 px (1:1) format for a casual farming game.
+
+Images 1-4: Show the 4 growth stages of cabbage growing from soil. Use the same camera angle and composition in every image. The background should contain only a small patch of natural farm ground/soil. Progression:
+
+Stage 1: Freshly planted cabbage seeds, tiny sprouts emerging.
+Stage 2: Small young cabbage plant with a few green leaves.
+Stage 3: Medium-sized cabbage plant with a fuller leaf structure.
+Stage 4: Fully grown mature cabbage ready for harvest.
+
+Style: 2D casual game art, clean shapes, soft shadows, vibrant colors, high readability at small sizes, transparent area outside the ground patch where possible, no text, no UI elements, no additional objects.
+
+Image 5: A separate cabbage seed bag icon. A small burlap seed sack filled with cabbage seeds, suitable for a farming game inventory. Transparent background, centered object, soft shadows, no text, no extra items, 2D casual game icon style matching the growth-stage images.

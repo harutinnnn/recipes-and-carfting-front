@@ -26,20 +26,20 @@ export const FooterTabNav = () => {
             </div>
 
             <div>
-                <div className={"tab-nav " + (active === "storage" ? "active" : "")}  onClick={() => {
-                    setActive('storage');
-                    navigation('/storage')
-                }}>
-                    <Warehouse size={32}/>
-                </div>
-            </div>
-
-            <div>
                 <div className={"tab-nav " + (active === "store" ? "active" : "")} onClick={() => {
                     setActive('store');
                     navigation('/store')
                 }}>
                     <Store size={32}/>
+                </div>
+            </div>
+
+            <div>
+                <div className={"tab-nav " + (active === "storage" ? "active" : "")}  onClick={() => {
+                    setActive('storage');
+                    navigation('/storage')
+                }}>
+                    <Warehouse size={32}/>
                 </div>
             </div>
 
