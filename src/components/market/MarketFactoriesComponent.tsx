@@ -1,9 +1,8 @@
 import {useEffect, useRef, useState} from "react";
 import {FactoryType} from "@/types/FactoryType";
-import {getFactories} from "@/api/factory.api";
+import {buyFactory, getFactories} from "@/api/factory.api";
 import {CircleDollarSign} from "lucide-react";
 import {useAuth} from "@/hooks/useAuth";
-import {buySeed} from "@/api/seeds.api";
 import toast from "react-hot-toast";
 import {ConfirmModal} from "@/components/ConfirmModal";
 
@@ -36,7 +35,7 @@ export const MarketFactoriesComponent = () => {
 
 
     useEffect(() => {
-        console.log(elementRef.current.offsetWidth)
+
         const updateWidth = () => {
             if (elementRef.current) {
                 setFieldsWidth((elementRef.current.offsetWidth / 2));
