@@ -85,6 +85,11 @@ html, body {
     font-size: 26px;
 }
 
+.inner-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
 .flex {
     display: flex;
 }
