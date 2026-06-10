@@ -61,7 +61,7 @@ export const MarketFactoriesComponent = () => {
 
             toast.error(newSeed?.error + "")
         } else {
-            toast.success('Successfully buying seed')
+            toast.success('Successfully buying factory')
             await refreshUser();
             // setOpenConfModal(false);
         }

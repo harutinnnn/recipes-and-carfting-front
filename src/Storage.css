@@ -1,0 +1,36 @@
+.storage-cat-btn-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 10px;
+    margin-bottom: 20px;
+}
+
+.storage-cat-btn {
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 20px;
+    height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+
+    background-color: var(--taf-hover-bg);
+    border-radius: 10px;
+    border-bottom: 6px solid var(--taf-hover-bg-dark);
+    cursor: pointer;
+
+    transition: all 0.1s;
+
+    &:active {
+        color: var(--main-text-color);
+        border-bottom: solid 0px var(--border-brown);
+        margin-top: 3px;
+        height: 74px;
+    }
+}
+
+.storage-cat-btn.active {
+    background-color: var(--focused-border-color-lighter);
+    border-color: var(--focused-border-color);
+}

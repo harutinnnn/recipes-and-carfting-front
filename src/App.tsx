@@ -1,5 +1,7 @@
 import './App.css'
 import './Market.css'
+import './Factory.css'
+import './Storage.css'
 import {Route, Routes} from "react-router-dom";
 import AuthLayout from "@/layouts/AuthLayout";
 import ProtectedLayout from "@/layouts/ProtectedLayout";

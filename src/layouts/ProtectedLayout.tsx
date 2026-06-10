@@ -10,8 +10,6 @@ export type ProtectedLayoutContext = {
 
 export default function ProtectedLayout() {
     const {user} = useAuth();
-    console.log(user);
-
     return (
         <>
             <Header/>

@@ -1,126 +1,66 @@
-import {useEffect, useRef, useState} from "react";
-import {getUserProducts, sellUserProduct, sellUserProductAll} from "@/api/product.api";
-import {UserProductSeedType} from "@/types/product.type";
-import {CircleDollarSign} from "lucide-react";
-import {ConfirmModal} from "@/components/ConfirmModal";
-import toast from "react-hot-toast";
-import {useAuth} from "@/hooks/useAuth";
+import {StorageSeedsComponent} from "@/components/storage/StorageSeedsComponent";
+import {Ham, Hamburger, Sprout} from "lucide-react";
+import React, {useEffect, useState} from "react";
+import {StorageAnimalProductsComponent} from "@/components/storage/StorageAnimalProductsComponent";
+import {StorageFoodComponent} from "@/components/storage/StorageFoodComponent";
 
 export const StoragePage = () => {
 
-    const {refreshUser} = useAuth();
 
-    const elementRef = useRef<HTMLDivElement | null>(null)
-    const [fieldsWidth, setFieldsWidth] = useState<number>(0)
+    type componentType = 'seeds' | 'animal_products' | 'food';
+    const [storageTypeComponent, setStorageTypeComponent] = useState<React.ReactNode>(<StorageSeedsComponent/>);
+    const [activeComponent, setActiveComponent] = useState<componentType>('seeds');
 
 
-    const [userProducts, setUserProducts] = useState<UserProductSeedType[]>([]);
-    const [openConfModal, setOpenConfModal] = useState(false);
-    const [productId, setProductId] = useState<number | null>(null);
-    const [productTitle, setProductTitle] = useState<string>("");
+    useEffect(() => {
 
-    const [sellAll, setSellAll] = useState<boolean>(false);
+    })
 
-    const getUserProductsHandle = async () => {
 
-        const data = await getUserProducts();
-        setUserProducts(data.items)
+    const handleSwitchStoreComponent = (type: componentType) => {
+
+        switch (type) {
+            case 'seeds':
+                setStorageTypeComponent(<StorageSeedsComponent/>)
+                setActiveComponent('seeds');
+                break;
+            case 'animal_products':
+                setStorageTypeComponent(<StorageAnimalProductsComponent/>)
+                setActiveComponent('animal_products');
+                break
+            case 'food':
+                setStorageTypeComponent(<StorageFoodComponent/>)
+                setActiveComponent('food');
+                break
+        }
 
     }
 
-    useEffect(() => {
-        (async () => {
-            await getUserProductsHandle()
-        })()
-    }, [])
-
-    useEffect(() => {
-        const updateWidth = () => {
-            if (elementRef.current) {
-                setFieldsWidth((elementRef.current.offsetWidth / 2));
-            }
-        };
-
-
-        updateWidth(); // initial width
-        window.addEventListener('resize', updateWidth);
-
-
-        return () => {
-            window.removeEventListener('resize', updateWidth);
-        };
-    });
-
-
-    const sellProduct = async (productId: number) => {
-
-        let data = null;
-
-        if (sellAll) {
-            data = await sellUserProductAll(productId)
-        } else {
-            data = await sellUserProduct(productId)
-        }
-
-        if ("error" in data) {
-            toast.error(data?.error + "")
-        } else {
-            toast.success('The product successfully sell!')
-            await getUserProductsHandle()
-            await refreshUser();
-            setOpenConfModal(false);
-        }
-    }
 
     return (
 
-        <div>
-            <h1 className={"page-title"}>Your Storage</h1>
+        <>
 
+            <h1 className={"page-title"}>Storage</h1>
 
-            <div className={"market-seeds-list"} ref={elementRef}>
-                {userProducts && userProducts.filter(product => product.userProducts.count > 0).map(product => {
-                    return (
-                        <div className={'market-seed-item'} style={{height: `${fieldsWidth}px`}}>
-                            <div className={"market-seed-title"}>
-                                <span>{product.products.title}</span> - <span>{product.seeds.minSellPrice}</span>
-                                <CircleDollarSign
-                                    size={16}/>
-                            </div>
+            <div className="storage-cat-btn-block">
 
-                            <img src={import.meta.env.VITE_API_URL + product.products.finalProduct}
-                                 alt={product.products.title.toString()}
-                                 className={"market-seed-icon"}/>
-                            <div className={"sell-btn-group"}>
-                                <button className={"btn info  xs sell-product-btn"} onClick={() => {
-                                    setOpenConfModal(true);
-                                    setProductId(product.userProducts.id)
-                                    setProductTitle(product.products.title)
-                                    setSellAll(false)
-                                }}>Cell product ({product.userProducts.count})
-                                </button>
-                                <button className={"btn info  xs sell-product-btn"} onClick={() => {
-                                    setOpenConfModal(true);
-                                    setProductId(product.userProducts.id)
-                                    setProductTitle(product.products.title)
-                                    setSellAll(true)
-                                }}>All
-                                </button>
-                            </div>
-                        </div>
-                    )
-                })}
+                <div className={'storage-cat-btn ' + (activeComponent === 'seeds' ? 'active' : '')}
+                     onClick={() => handleSwitchStoreComponent('seeds')}><Sprout
+                    size={38}/> <span>Crops</span></div>
+                <div className={'storage-cat-btn ' + (activeComponent === 'animal_products' ? 'active' : '')}
+                     onClick={() => handleSwitchStoreComponent('animal_products')}
+                ><Ham
+                    size={38}/> <span>Animal Products</span></div>
+                <div className={'storage-cat-btn ' + (activeComponent === 'food' ? 'active' : '')}
+                     onClick={() => handleSwitchStoreComponent('food')}
+                ><Hamburger
+                    size={38}/> <span>Prepared Food</span></div>
+
             </div>
 
-            <ConfirmModal
-                title={`Are you sure do buy a <strong> ${productTitle} </strong> seed?`}
-                // description={""}
-                open={openConfModal}
-                onCancel={() => setOpenConfModal(false)}
-                onConfirm={() => {
-                    void sellProduct(Number(productId))
-                }}
-            />
-        </div>
+            {storageTypeComponent}
+            {/*<StorageSeedsComponent/>*/}
+        </>
     )
 }
