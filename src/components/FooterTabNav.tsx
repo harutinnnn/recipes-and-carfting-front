@@ -11,7 +11,7 @@ export const FooterTabNav = () => {
     const location = useLocation();
     // const slug: string = getUrlSlug(location.pathname)[0] || "main"
 
-    const [active, setActive] = useState<string>(getUrlSlug(location.pathname)[0])
+    const [active, setActive] = useState<string>(getUrlSlug(location.pathname)[0] || 'main')
 
     return (
         <div className={'footer-tab-nav'}>
@@ -26,9 +26,9 @@ export const FooterTabNav = () => {
             </div>
 
             <div>
-                <div className={"tab-nav " + (active === "store" ? "active" : "")} onClick={() => {
-                    setActive('store');
-                    navigation('/store')
+                <div className={"tab-nav " + (active === "market" ? "active" : "")} onClick={() => {
+                    setActive('market');
+                    navigation('/market')
                 }}>
                     <Store size={32}/>
                 </div>

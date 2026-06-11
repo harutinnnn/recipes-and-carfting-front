@@ -40,7 +40,7 @@ function App() {
                 >
 
                     <Route path="/" element={<MainPage/>}/>
-                    <Route path="/store" element={<MarketPage/>}/>
+                    <Route path="/market" element={<MarketPage/>}/>
                     <Route path="/storage" element={<StoragePage/>}/>
                     <Route path="/factory" element={<FactoriesPage/>}/>
                     <Route path="/kitchen" element={<KitchenPage/>}/>

@@ -70,8 +70,6 @@ export const MarketFactoriesComponent = () => {
 
     return (
         <>
-            <h3 className="inner-title">Factories</h3>
-
             <div className={"market-factories-list"} ref={elementRef}>
                 {factories && factories.map(factory => (
                     <div className={'market-seed-item'} style={{height: `${fieldsWidth}px`}} key={factory.title}>

@@ -47,20 +47,19 @@ export const StoragePage = () => {
 
                 <div className={'storage-cat-btn ' + (activeComponent === 'seeds' ? 'active' : '')}
                      onClick={() => handleSwitchStoreComponent('seeds')}><Sprout
-                    size={38}/> <span>Crops</span></div>
+                    size={30}/> <span>Crops</span></div>
                 <div className={'storage-cat-btn ' + (activeComponent === 'animal_products' ? 'active' : '')}
                      onClick={() => handleSwitchStoreComponent('animal_products')}
                 ><Ham
-                    size={38}/> <span>Animal Products</span></div>
+                    size={30}/> <span>Animal Products</span></div>
                 <div className={'storage-cat-btn ' + (activeComponent === 'food' ? 'active' : '')}
                      onClick={() => handleSwitchStoreComponent('food')}
                 ><Hamburger
-                    size={38}/> <span>Prepared Food</span></div>
+                    size={30}/> <span>Prepared Food</span></div>
 
             </div>
 
             {storageTypeComponent}
-            {/*<StorageSeedsComponent/>*/}
         </>
     )
 }

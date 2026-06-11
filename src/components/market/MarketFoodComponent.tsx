@@ -1,24 +1,24 @@
 import {useEffect, useRef, useState} from "react";
-import {UserFoodData,} from "@/types/FoodType";
-import {_useUserFood, getUserFoods} from "@/api/food.api";
-import {Zap} from "lucide-react";
+import {FoodType} from "@/types/FoodType";
+import {buyFood, getFoods} from "@/api/food.api";
+import {CircleDollarSign} from "lucide-react";
 import {ConfirmModal} from "@/components/ConfirmModal";
 import {useAuth} from "@/hooks/useAuth";
 import toast from "react-hot-toast";
 
-export const StorageFoodComponent = () => {
+export const MarketFoodComponent = () => {
 
     const {refreshUser} = useAuth();
     const elementRef = useRef<HTMLDivElement | null>(null)
     const [fieldsWidth, setFieldsWidth] = useState<number>(0)
-    const [foods, setFoods] = useState<UserFoodData[]>([])
+    const [foods, setFoods] = useState<FoodType[]>([])
 
     const [seedId, setSeedId] = useState<number | null>(null);
     const [seedTitle, setSeedTitle] = useState<string>("");
     const [openConfModal, setOpenConfModal] = useState(false);
 
     const getFoodsHandle = async () => {
-        const data = await getUserFoods();
+        const data = await getFoods();
         setFoods(data.items)
     }
 
@@ -48,7 +48,7 @@ export const StorageFoodComponent = () => {
     const handleBuySeed = async (seedId: number) => {
 
 
-        const newFood = await _useUserFood(seedId)
+        const newFood = await buyFood(seedId)
 
         if ("error" in newFood) {
 
@@ -56,8 +56,6 @@ export const StorageFoodComponent = () => {
         } else {
             toast.success('Successfully buying food')
             await refreshUser();
-            await getFoodsHandle()
-            setOpenConfModal(false);
         }
     };
 
@@ -67,22 +65,19 @@ export const StorageFoodComponent = () => {
 
                 {foods && foods.map(food => {
                     return (
-                        <div className={'market-seed-item'} style={{height: `${fieldsWidth}px`}} key={food.foods.title}>
+                        <div className={'market-seed-item'} style={{height: `${fieldsWidth}px`}} key={food.title}>
                             <div className={"market-seed-title"}>
-                                <span>{food.foods.title}</span>({food.userFoods.count})
-                                - <span>{food.foods.energyPower}</span> <Zap size={16}/>
+                                <span>{food.title}</span> - <span>{food.price}</span> <CircleDollarSign
+                                size={16}/>
                             </div>
 
-                            <img
-                                src={import.meta.env.VITE_API_URL + food.foods.icon}
-                                alt={food.foods.title.toString()}
-                                className={"market-seed-icon"}
-                            />
+                            <img src={import.meta.env.VITE_API_URL + food.icon} alt={food.title.toString()}
+                                 className={"market-seed-icon"}/>
                             <button className={"btn info  sm buy-seed-btn"} onClick={() => {
                                 setOpenConfModal(true);
-                                setSeedId(food.userFoods.id)
-                                setSeedTitle(food.foods.title)
-                            }}>Use food
+                                setSeedId(food.id)
+                                setSeedTitle(food.title)
+                            }}>Buy Food
                             </button>
                         </div>
                     )

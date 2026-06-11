@@ -70,7 +70,6 @@ export const MarketSeedsComponent = () => {
 
     return (
         <>
-            <h3 className="inner-title">Seeds</h3>
             <div className={"market-seeds-list"} ref={elementRef}>
 
                 {seeds && seeds.map(seed => {
